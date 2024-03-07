@@ -11,7 +11,7 @@ export default {
         background: "#EEEFFB",
         foreground: "#151875",
 
-        purple: "#FB2E86",
+        violet: "#7E33E0",
         pink: "#FB2E86",
       },
     },

@@ -1,10 +1,13 @@
+import Hero from "../Components/Hero"
 import Navbar from "../Components/Navbar"
 
 function Home() {
   return (
     <>
       <Navbar />
-      <main></main>
+      <main>
+        <Hero />
+      </main>
       <footer></footer>
     </>
   )
