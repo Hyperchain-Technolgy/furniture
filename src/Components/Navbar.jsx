@@ -4,7 +4,7 @@ import SearchBar from './SearchBar'
 
 const Navbar = () => {
   return (
-    <header className="grid grid-cols-3 justify-items-center items-center font-medium">
+    <header className="grid grid-cols-3 container mx-auto items-center font-medium">
       <div>
         <img src={logo} alt="Logo" className='w-32' />
       </div>

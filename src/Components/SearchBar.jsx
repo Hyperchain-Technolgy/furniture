@@ -1,11 +1,11 @@
 const SearchBar = () => {
   return (
     <div
-      className="relative flex outline">
+      className="relative flex">
       <input
-        type="search"
+        type="text"
         className="bg-background p-2"
-        style={{ outlineOffset: 0 }}
+        // style={{ outlineOffset: 0 }}
         placeholder='Search' />
       <button
         className="bg-pink p-3"
