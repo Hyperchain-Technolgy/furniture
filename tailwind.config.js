@@ -13,6 +13,7 @@ export default {
 
         violet: "#7E33E0",
         pink: "#FB2E86",
+        lightpink: "#fb509a"
       },
     },
   },

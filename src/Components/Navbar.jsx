@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom'
-import logo from '../assets/logo.png'
 import SearchBar from './SearchBar'
 
 const Navbar = () => {
   return (
-    <header className="grid grid-cols-3 container mx-auto items-center font-medium">
-      <div>
-        <img src={logo} alt="Logo" className='w-32' />
-      </div>
+    <section className="flex container mx-auto items-center justify-between font-medium h-28">
+      <h1 className='w-32 font-bold text-lg'>Furniture.</h1>
       <nav>
         <ul className="flex cursor-pointer">
           <li><Link className='mx-5 hover:text-pink' to="/">Home</Link></li>
@@ -18,7 +15,7 @@ const Navbar = () => {
         </ul>
       </nav>
       <SearchBar />
-    </header>
+    </section>
   )
 }
 
