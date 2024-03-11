@@ -3,7 +3,7 @@ import furniture from "../assets/oneseater.png";
 const Hero = () => {
   return (
     <section className="bg-background">
-      <div className="h-[34rem] flex items-center container mx-auto px-10 flex-col md:flex-row">
+      <div className="h-[44rem] sm:h-[34rem] flex items-center container mx-auto px-10 flex-col md:flex-row">
         <section className="flex flex-col gap-4 md:items-start">
           <p className="text-pink capitalize">Best furniture for your castle...</p>
           <h1 className="text-4xl font-bold text w-auto lg:w-2/4 capitalize">New furniture collection trends in 2024 </h1>
@@ -12,7 +12,7 @@ const Hero = () => {
             Shop Now
           </button>
         </section>
-        <img src={furniture} alt="furniture" className="size-72 lg:size-96" />
+        <img src={furniture} alt="furniture" className="size-72 lg:size-96 sm:mt-0 mt-10" />
       </div>
     </section>
   )
