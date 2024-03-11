@@ -1,7 +1,7 @@
 const SearchBar = () => {
   return (
     <div className="flex">
-      <input type="text" className="bg-background p-2 border-2 rounded-l-md border-slate-300" placeholder='Search' />
+      <input type="text" className="p-2 border-2 rounded-l-md border-slate-300" placeholder='Search' />
       <button className="bg-pink p-3 rounded-r-md hover:bg-lightpink active:ring-2 ring-inset" type="button">
         <span className="[&>svg]:h-5 [&>svg]:w-5">
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30">
