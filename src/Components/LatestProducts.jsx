@@ -1,13 +1,13 @@
 import ProductsList from "./ProductsList"
 import SectionHeading from "./SectionHeading"
 
-const Featured = ({ content }) => {
+const LatestProducts = ({ content }) => {
   return (
-    <section className="my-16">
+    <section className="my-10">
       <SectionHeading content={content} />
       <ProductsList />
     </section>
   )
 }
 
-export default Featured
+export default LatestProducts 

@@ -1,5 +1,6 @@
 import Featured from "../Components/Featured"
 import Hero from "../Components/Hero"
+import LatestProducts from "../Components/LatestProducts"
 import Navbar from "../Components/Navbar"
 
 function Home() {
@@ -10,7 +11,8 @@ function Home() {
       </header>
       <main>
         <Hero />
-        <Featured />
+        <Featured content="Featured Products" />
+        <LatestProducts content="Latest Products" />
       </main>
       <footer></footer>
     </>
