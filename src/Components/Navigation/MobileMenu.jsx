@@ -46,7 +46,7 @@ const MobileMenu = ({ open, setOpen, navigation, classNames }) => {
                   <Tab.List className="-mb-px flex space-x-8 px-4">
                     {navigation.categories.map((category) => (
                       <Tab
-                        key={category.name}
+                        key={category.title}
                         className={({ selected }) =>
                           classNames(
                             selected ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-900',
@@ -64,7 +64,7 @@ const MobileMenu = ({ open, setOpen, navigation, classNames }) => {
                     <Tab.Panel key={category.name} className="space-y-12 px-4 py-6">
                       <div className="grid grid-cols-2 gap-x-4 gap-y-10">
                         {category.featured.map((item) => (
-                          <div key={item.name} className="group relative">
+                          <div key={item.title} className="group relative" >
                             <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
                               <img src={item.imageSrc} alt={item.title} className="object-cover object-center" />
                             </div>
@@ -109,7 +109,7 @@ const MobileMenu = ({ open, setOpen, navigation, classNames }) => {
           </Transition.Child>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition.Root >
   )
 }
 

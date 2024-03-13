@@ -5,6 +5,7 @@ import {
   ShoppingBagIcon,
 } from '@heroicons/react/24/outline'
 import { Fragment } from 'react'
+import Cart from '../Cart'
 
 const TopNavigation = ({ navigation, setOpen, classNames }) => {
   return (
@@ -32,7 +33,7 @@ const TopNavigation = ({ navigation, setOpen, classNames }) => {
                 {/* Logo (lg+) */}
                 <div className="hidden lg:flex lg:flex-1 lg:items-center">
                   <a href="#">
-                    <span className="sr-only">Your Company</span>
+                    <span className="sr-only">Furniture.</span>
                     <img
                       className="h-8 w-auto"
                       src="https://tailwindui.com/img/logos/mark.svg?color=pink&shade=600"
@@ -140,7 +141,7 @@ const TopNavigation = ({ navigation, setOpen, classNames }) => {
 
                 {/* Logo (lg-) */}
                 <a href="#" className="lg:hidden">
-                  <span className="sr-only">Your Company</span>
+                  <span className="sr-only">Furniture.</span>
                   <img
                     src="https://tailwindui.com/img/logos/mark.svg?color=pink&shade=600"
                     alt=""
@@ -152,20 +153,7 @@ const TopNavigation = ({ navigation, setOpen, classNames }) => {
                   <a href="#" className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
                     Search
                   </a>
-
-                  <div className="flex items-center lg:ml-8">
-                    {/* Cart */}
-                    <div className="ml-4 flow-root lg:ml-8">
-                      <a href="#" className="group -m-2 flex items-center p-2">
-                        <ShoppingBagIcon
-                          className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                        <span className="sr-only">items in cart, view bag</span>
-                      </a>
-                    </div>
-                  </div>
+                  <Cart />
                 </div>
               </div>
             </div>

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar'
 import { useState } from 'react'
-
 import MobileMenu from './Navigation/MobileMenu'
 import TopNavigation from './Navigation/TopNavigation'
 
