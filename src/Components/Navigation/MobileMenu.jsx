@@ -46,7 +46,7 @@ const MobileMenu = ({ open, setOpen, navigation, classNames }) => {
                   <Tab.List className="-mb-px flex space-x-8 px-4">
                     {navigation.categories.map((category) => (
                       <Tab
-                        key={category.title}
+                        key={category.name}
                         className={({ selected }) =>
                           classNames(
                             selected ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-900',

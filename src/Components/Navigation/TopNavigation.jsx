@@ -6,21 +6,27 @@ import {
 } from '@heroicons/react/24/outline'
 import { Fragment } from 'react'
 import Cart from '../Cart'
+import SearchBar from '../SearchBar'
+import { Link } from 'react-router-dom'
 
 const TopNavigation = ({ navigation, setOpen, classNames }) => {
   return (
-    <header className="relative">
-      <nav aria-label="Top">
+    <div className="relative">
+      <div aria-label="Top">
         {/* Top navigation */}
         <div className="bg-foreground">
           <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <div className="flex items-center space-x-6">
-              <a href="#" className="text-sm font-medium text-white hover:text-gray-100">
-                Sign in
-              </a>
-              <a href="#" className="text-sm font-medium text-white hover:text-gray-100">
-                Create an account
-              </a>
+              <Link to="/login">
+                <span className="text-sm font-medium text-white hover:text-gray-100">
+                  Sign in
+                </span>
+              </Link>
+              <Link to="register">
+                <span className="text-sm font-medium text-white hover:text-gray-100">
+                  Create an account
+                </span>
+              </Link>
             </div>
           </div>
         </div>
@@ -54,8 +60,8 @@ const TopNavigation = ({ navigation, setOpen, classNames }) => {
                                 <Popover.Button
                                   className={classNames(
                                     open
-                                      ? 'border-indigo-600 text-indigo-600'
-                                      : 'border-transparent text-gray-700 hover:text-gray-800',
+                                      ? 'border-pink text-pink'
+                                      : 'border-transparent text-foreground hover:text-foreground',
                                     'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                                   )}
                                 >
@@ -72,7 +78,7 @@ const TopNavigation = ({ navigation, setOpen, classNames }) => {
                                 leaveFrom="opacity-100"
                                 leaveTo="opacity-0"
                               >
-                                <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500">
+                                <Popover.Panel className="absolute inset-x-0 top-full text-sm text-foreground">
                                   {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                                   <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
 
@@ -80,7 +86,8 @@ const TopNavigation = ({ navigation, setOpen, classNames }) => {
                                     <div className="mx-auto max-w-7xl px-8">
                                       <div className="grid grid-cols-4 gap-x-8 gap-y-10 py-16">
                                         {category.featured.map((item) => (
-                                          <div key={item.name} className="group relative">
+
+                                          <div key={item.title} className="group relative">
                                             <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
                                               <img
                                                 src={item.imageSrc}
@@ -133,6 +140,7 @@ const TopNavigation = ({ navigation, setOpen, classNames }) => {
                   </button>
 
                   {/* Search */}
+                  {/* <SearchBar /> */}
                   <a href="#" className="ml-2 p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
@@ -151,7 +159,8 @@ const TopNavigation = ({ navigation, setOpen, classNames }) => {
 
                 <div className="flex flex-1 items-center justify-end">
                   <a href="#" className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
-                    Search
+                    {/* Search */}
+                    <SearchBar />
                   </a>
                   <Cart />
                 </div>
@@ -159,8 +168,8 @@ const TopNavigation = ({ navigation, setOpen, classNames }) => {
             </div>
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </div>
   )
 }
 

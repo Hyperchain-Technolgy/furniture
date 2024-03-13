@@ -35,10 +35,10 @@ const Cart = () => {
             <Popover className="ml-4 flow-root text-sm lg:relative lg:ml-8">
               <Popover.Button className="group -m-2 flex items-center p-2">
                 <ShoppingBagIcon
-                  className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                  className="h-6 w-6 flex-shrink-0 text-foreground group-hover:text-pink"
                   aria-hidden="true"
                 />
-                <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                <span className="ml-2 text-sm font-medium text-foreground group-hover:text-pink">{products.length}</span>
                 <span className="sr-only">items in cart, view bag</span>
               </Popover.Button>
               <Transition
@@ -74,7 +74,7 @@ const Cart = () => {
 
                     <button
                       type="submit"
-                      className="w-full rounded-md border border-transparent bg-pink px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-violet focus:outline-none focus:ring-2 focus:ring-violet focus:ring-offset-2 duration-300  "
+                      className="w-full rounded-md border border-transparent bg-pink px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-violet focus:outline-none focus:ring-2 focus:ring-violet focus:ring-offset-2 duration-300"
                     >
                       Checkout
                     </button>
