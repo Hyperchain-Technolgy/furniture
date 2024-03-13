@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       <header>
-        {/* <Navbar /> */}
+        <Navbar />
       </header>
       <main>
         <Hero />
