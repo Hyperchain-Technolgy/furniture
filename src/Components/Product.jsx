@@ -6,11 +6,11 @@ const Product = ({ data }) => {
   return (
     <section className="border w-72 min-w-64 group hover:cursor-pointer" >
       <section>
-        <div className='flex gap-4 p-5 absolute'>
+        <div className='flex gap-4 p-5 absolute z-10'>
           <SecondaryButton src={cart} alt="cart icon" />
           <SecondaryButton src={heart} alt="heart icon" />
         </div>
-        <div className='relative overflow-hidden bg-cover bg-no-repeat'>
+        <div className='overflow-hidden bg-cover bg-no-repeat'>
           <img src={data.image} alt="chair" className='transition duration-300 ease-in-out hover:scale-110' />
         </div>
       </section>
