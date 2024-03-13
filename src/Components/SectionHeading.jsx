@@ -1,6 +1,6 @@
 const SectionHeading = ({ content }) => {
   return (
-    <h2 className="text-center text-3xl font-semibold my-8">{content}
+    <h2 className="text-center text-3xl font-semibold lg:my-8 tracking-tight">{content}
     </h2>
   )
 }

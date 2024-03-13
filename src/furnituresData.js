@@ -2,6 +2,7 @@ export const data = [
   {
     id: 1,
     category: 'Chair',
+    featured: 'yes',
     title: 'Armchair with Head Rester',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/armchair.jpg',
@@ -9,6 +10,7 @@ export const data = [
   }, {
     id: 2,
     category: 'Sofa',
+    featured: 'yes',
     title: 'Beige Living Room Sofa',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/sofa.jpg',
@@ -17,6 +19,7 @@ export const data = [
   }, {
     id: 3,
     category: 'Table',
+    featured: 'yes',
     title: 'Classic Wooden Table',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/table.jpg',
@@ -25,6 +28,7 @@ export const data = [
   }, {
     id: 4,
     category: 'Table',
+    featured: 'yes',
     title: 'Computer Table with Office Chair',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2017/12/office-table.jpg',
@@ -32,6 +36,7 @@ export const data = [
   }, {
     id: 5,
     category: 'Table',
+    featured: 'no',
     title: 'Corner Study Table with Chair',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/desk-table.jpg',
@@ -39,6 +44,7 @@ export const data = [
   }, {
     id: 6,
     category: 'Table',
+    featured: 'no',
     title: 'Desktop Table with Drawers',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/study-table.jpg',
@@ -47,6 +53,7 @@ export const data = [
   }, {
     id: 7,
     category: 'Table',
+    featured: 'no',
     title: 'Dinning Table for Two',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/dining-table.jpg',
@@ -56,6 +63,7 @@ export const data = [
     id: 8,
     category: 'Sofa',
     title: 'Fancy Chairs',
+    featured: 'no',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/fancy-chairs.jpg',
     price: 380,
@@ -63,12 +71,14 @@ export const data = [
     id: 9,
     category: 'Chair',
     title: 'Fancy Single Chair',
+    featured: 'no',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2017/11/chair.jpg',
     price: 199,
   }, {
     id: 10,
     category: 'Sofa',
+    featured: 'no',
     title: 'Modern White Round Sofa',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/round-sofa.jpg',
@@ -76,6 +86,7 @@ export const data = [
   }, {
     id: 11,
     category: 'Chair',
+    featured: 'no',
     title: 'Orange Recliner with Leg Rest',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/pic53-free-img.jpg',
@@ -83,6 +94,7 @@ export const data = [
   }, {
     id: 12,
     category: 'Chair',
+    featured: 'no',
     title: 'Round Short Leg Stool/Chair',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/round-stool.jpg',
@@ -90,6 +102,7 @@ export const data = [
   }, {
     id: 13,
     category: 'Sofa',
+    featured: 'no',
     title: 'Sofa Chairs with Cushions',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/safa-2.jpg',
@@ -97,6 +110,7 @@ export const data = [
   }, {
     id: 14,
     category: 'Sofa',
+    featured: 'no',
     title: 'Sofa Chairs with Red Cushions',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/chair-1.jpg',
@@ -104,6 +118,7 @@ export const data = [
   }, {
     id: 15,
     category: 'Table',
+    featured: 'no',
     title: 'Study Table',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/wooden-study-table.jpg',
@@ -111,6 +126,7 @@ export const data = [
   }, {
     id: 16,
     category: 'Chair',
+    featured: 'no',
     title: 'Vintage Luxury Chair',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/luxury-chair.jpg',
@@ -118,6 +134,7 @@ export const data = [
   }, {
     id: 17,
     category: 'Chair',
+    featured: 'no',
     title: 'Wingback Yellow Couch',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/couch.jpg',
@@ -126,6 +143,7 @@ export const data = [
   }, {
     id: 18,
     category: 'Chair',
+    featured: 'no',
     title: 'Wooden Rocking Chair',
     content: 'Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.',
     image: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/wooden-rocking-chair.jpg',
