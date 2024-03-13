@@ -29,8 +29,8 @@ const products = [
 const Cart = () => {
   return (
     <section className="relative bg-white">
-      <nav aria-label="Top" className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="relative border-b border-gray-200 px-4 pb-14 sm:static sm:px-0 sm:pb-0">
+      <div aria-label="Top" className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="relative border-b border-gray-200 px-4 sm:static sm:px-0 sm:pb-0">
           <div className="flex h-16 items-center justify-between">
             <Popover className="ml-4 flow-root text-sm lg:relative lg:ml-8">
               <Popover.Button className="group -m-2 flex items-center p-2">
@@ -84,7 +84,7 @@ const Cart = () => {
             </Popover>
           </div>
         </div>
-      </nav>
+      </div>
     </section >
   )
 }
