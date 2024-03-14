@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { Popover, Transition } from '@headlessui/react'
+import Button from './Button'
 
 const products = [
   {
@@ -71,13 +72,7 @@ const Cart = () => {
                         </li>
                       ))}
                     </ul>
-
-                    <button
-                      type="submit"
-                      className="w-full rounded-md border border-transparent bg-pink px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-violet focus:outline-none focus:ring-2 focus:ring-violet focus:ring-offset-2 duration-300"
-                    >
-                      Checkout
-                    </button>
+                    <Button content="Checkout" className="w-full rounded-md border border-transparent bg-pink px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-violet focus:outline-none focus:ring-2 focus:ring-violet focus:ring-offset-2 duration-300" />
                   </form>
                 </Popover.Panel>
               </Transition>
