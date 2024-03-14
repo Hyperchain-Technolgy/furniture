@@ -4,6 +4,9 @@ import { useState } from 'react'
 import MobileMenu from './Navigation/MobileMenu'
 import TopNavigation from './Navigation/TopNavigation'
 
+
+const currencies = ['INR', 'CAD', 'USD', 'AUD', 'EUR', 'GBP']
+
 const navigation = {
   categories: [
     {
@@ -40,8 +43,8 @@ const Navbar = () => {
 
   return (
     <>
-      <MobileMenu open={open} setOpen={setOpen} navigation={navigation} classNames={classNames} />
-      <TopNavigation navigation={navigation} setOpen={setOpen} classNames={classNames} />
+      <MobileMenu open={open} setOpen={setOpen} navigation={navigation} classNames={classNames} currencies={currencies} />
+      <TopNavigation navigation={navigation} setOpen={setOpen} classNames={classNames} currencies={currencies} />
 
       {/* <section className="flex container mx-auto items-center justify-between font-medium h-28">
         <h1 className='w-32 font-bold text-lg'>Furniture.</h1>
