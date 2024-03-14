@@ -157,19 +157,20 @@ const TopNavigation = ({ navigation, setOpen, classNames }) => {
                   />
                 </a>
 
-                <div className="flex flex-1 items-center justify-end">
-                  <a href="#" className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
-                    {/* Search */}
+                <div className="flex flex-1 items-center justify-end gap-5">
+                  <span className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
                     <SearchBar />
-                  </a>
-                  <Cart />
+                  </span>
+                  <Link to="/cart">
+                    <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
