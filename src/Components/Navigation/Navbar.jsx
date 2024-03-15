@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom'
-import SearchBar from './SearchBar'
+import SearchBar from '../SearchBar'
 import { useState } from 'react'
-import MobileMenu from './Navigation/MobileMenu'
-import TopNavigation from './Navigation/TopNavigation'
+import MobileMenu from './MobileMenu'
+import TopNavigation from './TopNavigation'
 
 
 const currencies = ['INR', 'CAD', 'USD', 'AUD', 'EUR', 'GBP']

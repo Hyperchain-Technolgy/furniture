@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Dialog, Tab, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Link } from 'react-router-dom'
 
 const MobileMenu = ({ open, setOpen, navigation, classNames, currencies }) => {
   return (
@@ -96,14 +97,18 @@ const MobileMenu = ({ open, setOpen, navigation, classNames, currencies }) => {
 
               <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                 <div className="flow-root">
-                  <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                    Create an account
-                  </a>
+                  <Link to="/login">
+                    <span className="-m-2 block p-2 font-medium text-gray-900">
+                      Create an account
+                    </span>
+                  </Link>
                 </div>
                 <div className="flow-root">
-                  <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                    Sign in
-                  </a>
+                  <Link to="/register">
+                    <span className="-m-2 block p-2 font-medium text-gray-900">
+                      Sign in
+                    </span>
+                  </Link>
                 </div>
               </div>
 

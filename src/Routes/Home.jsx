@@ -1,7 +1,7 @@
 import Featured from "../Components/Featured"
 import Hero from "../Components/Hero"
 import LatestProducts from "../Components/LatestProducts"
-import Navbar from "../Components/Navbar"
+import Navbar from "../Components/Navigation/Navbar"
 
 function Home() {
   return (

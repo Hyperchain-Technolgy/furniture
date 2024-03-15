@@ -46,7 +46,7 @@ const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
                   Sign in
                 </span>
               </Link>
-              <Link to="register">
+              <Link to="/register">
                 <span className="text-sm font-medium text-white hover:text-gray-100">
                   Create an account
                 </span>
@@ -62,14 +62,14 @@ const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
               <div className="flex h-16 items-center justify-between">
                 {/* Logo (lg+) */}
                 <div className="hidden lg:flex lg:flex-1 lg:items-center">
-                  <a href="#">
+                  <Link to='/'>
                     <span className="sr-only">Furniture.</span>
                     <img
                       className="h-8 w-auto"
                       src="https://tailwindui.com/img/logos/mark.svg?color=pink&shade=600"
                       alt=""
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="hidden h-full lg:flex">
