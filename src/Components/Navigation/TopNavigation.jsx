@@ -5,7 +5,6 @@ import {
   ShoppingBagIcon,
 } from '@heroicons/react/24/outline'
 import { Fragment } from 'react'
-import Cart from '../Cart'
 import SearchBar from '../SearchBar'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom'
