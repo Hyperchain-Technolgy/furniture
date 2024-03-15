@@ -1,14 +1,14 @@
-import cart from '../assets/cart.svg'
-import heart from '../assets/heart.svg'
-import SecondaryButton from './SecondaryButton'
+import { ShoppingCartIcon as SolidShoppingCart, HeartIcon as SolidHeartIcon } from '@heroicons/react/24/solid';
+import { ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline'
+import IconButton from './IconButton'
 
 const Product = ({ element }) => {
   return (
     <div className="group relative">
       <div className="w-full overflow-hidden border rounded-md" >
         <div className='flex gap-4 p-5 absolute z-10'>
-          <SecondaryButton src={cart} alt="cart icon" />
-          <SecondaryButton src={heart} alt="heart icon" />
+          <IconButton Solid={SolidShoppingCart} Outline={ShoppingCartIcon} />
+          <IconButton Solid={SolidHeartIcon} Outline={HeartIcon} color='text-rose-600' />
         </div>
         <div className='overflow-hidden bg-cover bg-no-repeat'>
           <img
