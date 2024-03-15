@@ -7,30 +7,24 @@ import TopNavigation from './TopNavigation'
 const currencies = ['INR', 'CAD', 'USD', 'AUD', 'EUR', 'GBP']
 
 const navigation = {
-  categories: [
-    {
-      name: 'Categories',
-      featured: [
-        {
-          id: 1,
-          title: 'Armchair with Head Rester',
-          imageSrc: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/armchair.jpg',
-        }, {
-          id: 2,
-          title: 'Beige Living Room Sofa',
-          imageSrc: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/sofa.jpg',
-        }, {
-          id: 3,
-          title: 'Classic Wooden Table',
-          imageSrc: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/table.jpg',
-        }, {
-          id: 4,
-          title: 'Computer Table with Office Chair',
-          imageSrc: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2017/12/office-table.jpg',
-        },
-      ],
-    },
+  office: [
+    { name: 'Staff seating', href: '#' },
+    { name: 'Director seating', href: '#' },
+    { name: 'H.B. chair', href: '#' },
+    { name: 'M.B. chair', href: '#' },
+    { name: 'L.B. chair', href: '#' },
+    { name: 'Sofa', href: '#' },
+    { name: 'Conference seating', href: '#' },
+    { name: 'Corner table', href: '#' },
+    { name: 'Artifact', href: '#' },
+    { name: 'Auditorium Seating', href: '#' },
   ],
+  home: [
+    { name: 'Living Room', href: '#' },
+  ],
+  art: [
+    { name: 'Living Room', href: '#' },
+  ]
 }
 
 function classNames(...classes) {

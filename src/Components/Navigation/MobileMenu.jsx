@@ -4,7 +4,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom'
 
-const MobileMenu = ({ open, setOpen, navigation, classNames, currencies }) => {
+const MobileMenu = ({ open, setOpen, navigation, currencies }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -44,44 +44,60 @@ const MobileMenu = ({ open, setOpen, navigation, classNames, currencies }) => {
 
               {/* Links */}
               <Tab.Group as="div" className="mt-2">
-                <div className="border-b border-gray-200">
-                  <Tab.List className="-mb-px flex space-x-8 px-4">
-                    {navigation.categories.map((category) => (
-                      <Tab
-                        key={category.name}
-                        className={({ selected }) =>
-                          classNames(
-                            selected ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-900',
-                            'flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium'
-                          )
-                        }
-                      >
-                        {category.name}
-                      </Tab>
-                    ))}
-                  </Tab.List>
-                </div>
                 <Tab.Panels as={Fragment}>
-                  {navigation.categories.map((category) => (
-                    <Tab.Panel key={category.name} className="space-y-12 px-4 py-6">
-                      <div className="grid grid-cols-2 gap-x-4 gap-y-10">
-                        {category.featured.map((item) => (
-                          <div key={item.title} className="group relative" >
-                            <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
-                              <img src={item.imageSrc} alt={item.title} className="object-cover object-center" />
-                            </div>
-                            <a href={item.href} className="mt-6 block text-sm font-medium text-gray-900">
-                              <span className="absolute inset-0 z-10" aria-hidden="true" />
-                              {item.name}
-                            </a>
-                            <p aria-hidden="true" className="mt-1 text-sm text-gray-500">
-                              Shop now
-                            </p>
-                          </div>
-                        ))}
+                  <Tab.Panel key={navigation.name} className="space-y-12 px-4 pb-6 pt-10">
+                    <div className="grid grid-cols-1 items-start gap-x-6 gap-y-10">
+                      <div className="grid grid-cols-1 gap-x-6 gap-y-10">
+                        <div>
+                          <p className="font-medium text-gray-900">
+                            Office furniture
+                          </p>
+                          <ul
+                            role="list"
+                            className="mt-6 space-y-6"
+                          >
+                            {navigation.office.map((item) => (
+                              <li key={item.name} className="flex">
+                                <a href={item.href} className="text-gray-500">
+                                  {item.name}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <p id="mobile-categories-heading" className="font-medium text-gray-900">
+                            Home furniture
+                          </p>
+                          <ul role="list" aria-labelledby="mobile-categories-heading" className="mt-6 space-y-6">
+                            {navigation.home.map((item) => (
+                              <li key={item.name} className="flex">
+                                <a href={item.href} className="text-gray-500">
+                                  {item.name}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                    </Tab.Panel>
-                  ))}
+                      <div className="grid grid-cols-1 gap-x-6 gap-y-10">
+                        <div>
+                          <p id="mobile-collection-heading" className="font-medium text-gray-900">
+                            Art
+                          </p>
+                          <ul role="list" aria-labelledby="mobile-collection-heading" className="mt-6 space-y-6">
+                            {navigation.art.map((item) => (
+                              <li key={item.name} className="flex">
+                                <a href={item.href} className="text-gray-500">
+                                  {item.name}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </Tab.Panel>
                 </Tab.Panels>
               </Tab.Group>
 
