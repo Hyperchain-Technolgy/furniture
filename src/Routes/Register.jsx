@@ -1,4 +1,4 @@
-import SignUp from "../Components/SignUp"
+import SignUp from "../feature/auth/SignUp"
 
 function Register() {
   return (

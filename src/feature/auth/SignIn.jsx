@@ -1,8 +1,8 @@
-import Button from './Button'
-import FormContainer from './FormContainer'
-import FormFooter from './FormFooter'
-import FormHeading from './FormHeading'
-import InputField from './InputField'
+import Button from '../../Components/Button'
+import FormContainer from '../../Components/FormContainer'
+import FormFooter from '../../Components/FormFooter'
+import FormHeading from '../../Components/FormHeading'
+import InputField from '../../Components/InputField'
 
 const SignIn = () => {
   return (

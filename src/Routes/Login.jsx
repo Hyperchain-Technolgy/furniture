@@ -1,4 +1,4 @@
-import SignIn from "../Components/SignIn"
+import SignIn from "../feature/auth/SignIn"
 
 function Login() {
   return (
