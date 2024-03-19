@@ -1,4 +1,4 @@
-import SignIn from "../feature/auth/SignIn"
+import SignIn from "../Components/SignIn"
 
 function Login() {
   return (
@@ -8,4 +8,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Login  
