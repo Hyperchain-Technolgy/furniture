@@ -8,9 +8,9 @@ export const formFieldStyle = {
   label: 'block text-sm font-medium leading-6 text-gray-900'
 }
 
-const SignUp = ({ userData, setUserData, handleSubmit, error }) => {
+const SignUp = ({ userData, setUserData, handleSubmit }) => {
   const handleName = (e) => {
-    setUserData({ ...userData, name: e.target.value });
+    setUserData({ ...userData, fullname: e.target.value });
   }
 
   const handleEmail = (e) => {
@@ -32,7 +32,7 @@ const SignUp = ({ userData, setUserData, handleSubmit, error }) => {
             <div className="grid gap-5">
               <div className="grid gap-1">
                 <label htmlFor="name" className={formFieldStyle.label}>Full Name</label>
-                <input type="text" id="name" className={formFieldStyle.input} value={userData.name} onChange={handleName} required />
+                <input type="text" id="name" className={formFieldStyle.input} value={userData.fullname} onChange={handleName} required />
               </div>
               <div className="grid gap-1">
                 <label htmlFor="email" className={formFieldStyle.label}>Email</label>

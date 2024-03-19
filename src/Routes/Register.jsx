@@ -3,11 +3,13 @@ import SignUp from "../Components/SignUp"
 import { useDispatch } from "react-redux"
 import { registerUser } from "../feature/auth/authSlice";
 import Warning from "../Components/Warning";
+import { useNavigate } from "react-router";
 
 function Register() {
   const [userData, setUserData] = useState({ fullname: '', email: '', password: '' })
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,14 +23,15 @@ function Register() {
     }
 
     dispatch(registerUser(userData)).then(() => {
-      setUserData({ name: '', email: '', password: '' });
-    });;
+      setUserData({ fullname: '', email: '', password: '' });
+      navigate("/");
+    });
   }
 
   return (
     <main>
       {error && <Warning heading={error} />}
-      <SignUp userData={userData} setUserData={setUserData} handleSubmit={handleSubmit} error={error} />
+      <SignUp userData={userData} setUserData={setUserData} handleSubmit={handleSubmit} />
     </main>
   )
 }
