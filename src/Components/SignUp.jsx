@@ -3,7 +3,7 @@ import FormContainer from "./FormContainer";
 import FormHeading from "./FormHeading";
 import FormFooter from "./FormFooter";
 
-const formFieldStyle = {
+export const formFieldStyle = {
   input: 'block w-full font-medium rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-foreground sm:leading-6',
   label: 'block text-sm font-medium leading-6 text-gray-900'
 }
@@ -35,12 +35,12 @@ const SignUp = ({ userData, setUserData, handleSubmit, error }) => {
                 <input type="text" id="name" className={formFieldStyle.input} value={userData.name} onChange={handleName} required />
               </div>
               <div className="grid gap-1">
-                <label htmlFor="name" className={formFieldStyle.label}>Email</label>
-                <input type="email" id="name" className={formFieldStyle.input} value={userData.email} onChange={handleEmail} required />
+                <label htmlFor="email" className={formFieldStyle.label}>Email</label>
+                <input type="email" id="email" className={formFieldStyle.input} value={userData.email} onChange={handleEmail} required />
               </div>
               <div className="grid gap-1">
-                <label htmlFor="name" className={formFieldStyle.label}>Password</label>
-                <input type="password" id="name" className={formFieldStyle.input} value={userData.password} onChange={handlePassword} required />
+                <label htmlFor="password" className={formFieldStyle.label}>Password</label>
+                <input type="password" id="password" className={formFieldStyle.input} value={userData.password} onChange={handlePassword} required />
               </div>
             </div>
 
