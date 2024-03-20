@@ -22,9 +22,16 @@ function Login() {
       setError('');
     }
 
-    dispatch(loginUser(userData)).then(() => {
-      setUserData({ email: '', password: '' });
-      navigate("/");
+    dispatch(loginUser(userData)).then((resp) => {
+      if (resp.payload && resp.payload.token) {
+        localStorage.setItem('token', resp.payload.token);
+        setUserData({ email: '', password: '' });
+        navigate("/");
+      } else {
+        setError('Login failed. Please try again.');
+      }
+    }).catch((error) => {
+      setError('Login failed. Please try again.');
     });
   }
 
