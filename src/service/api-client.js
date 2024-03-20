@@ -4,7 +4,6 @@ const ENDPOINT = 'http://localhost:5000';
 
 export const getAll = async (path) => {
   const response = await axios.get(`${ENDPOINT}${path}`)
-  // const response = await axios.get(`https://dummyjson.com${endpoint}`)
   return response.data;
 }
 

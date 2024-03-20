@@ -9,10 +9,11 @@ const initialState = {
 
 export const getProducts = createAsyncThunk("products/getProducts", async () => {
   try {
-    const resp = await getAll()
+    const resp = await getAll('/api/productss/')
     return resp;
   } catch (err) {
     console.log(err);
+    throw err;
   }
 })
 
@@ -24,13 +25,16 @@ const productsSlice = createSlice({
     builder
       .addCase(getProducts.pending, (state) => {
         state.isLoading = true;
+        state.error = null;
       })
       .addCase(getProducts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.products = action.payload;
+        state.error = null;
       })
-      .addCase(getProducts.rejected, (state) => {
+      .addCase(getProducts.rejected, (state, action) => {
         state.isLoading = false;
+        state.error = action.error.message
       })
   }
 })
