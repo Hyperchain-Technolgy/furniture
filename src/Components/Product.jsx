@@ -1,18 +1,35 @@
 import { ShoppingCartIcon as SolidShoppingCart, HeartIcon as SolidHeartIcon } from '@heroicons/react/24/solid';
 import { ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline'
 import IconButton from './IconButton'
+import { addProductToWishlist, removeProductFromWishlist } from '../feature/wishlist/wishlistSlice';
+import { useDispatch } from 'react-redux';
+
 
 const Product = ({ element }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToWishlist = (item) => {
+    dispatch(addProductToWishlist(item));
+  };
+
+  const handleRemoveFromWishlist = (item) => {
+    dispatch(removeProductFromWishlist(item));
+  };
+
   return (
     <div className="group relative">
       <div className="w-full overflow-hidden border rounded-md" >
         <div className='flex gap-4 p-5 absolute z-10'>
           <IconButton Solid={SolidShoppingCart} Outline={ShoppingCartIcon} />
-          <IconButton Solid={SolidHeartIcon} Outline={HeartIcon} color='text-rose-600' />
+          <IconButton Solid={SolidHeartIcon} Outline={HeartIcon} color='text-rose-600'
+            element={element}
+            handleAdd={handleAddToWishlist}
+            handleRemove={handleRemoveFromWishlist}
+          />
         </div>
         <div className='overflow-hidden bg-cover bg-no-repeat'>
           <img
-            src={element.image}
+            src={element.images[0].url}
             alt={element.title}
             className='h-full w-full object-cover object-center transition duration-300 ease-in-out hover:scale-110' />
         </div >
