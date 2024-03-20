@@ -9,7 +9,7 @@ const initialState = {
 
 export const getProducts = createAsyncThunk("products/getProducts", async () => {
   try {
-    const resp = await getAll('/api/productss/')
+    const resp = await getAll('/api/products/')
     return resp;
   } catch (err) {
     console.log(err);
