@@ -1,15 +1,17 @@
 import { ShoppingCartIcon as SolidShoppingCart, HeartIcon as SolidHeartIcon } from '@heroicons/react/24/solid';
 import { ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline'
 import IconButton from './IconButton'
-import { addProductToWishlist, removeProductFromWishlist } from '../feature/wishlist/wishlistSlice';
-import { useDispatch } from 'react-redux';
+import { addProductToWishlist, addToWishlist, removeProductFromWishlist } from '../feature/wishlist/wishlistSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const Product = ({ element }) => {
+  const token = useSelector(state => state.auth.user.token)
+
   const dispatch = useDispatch();
 
   const handleAddToWishlist = (item) => {
-    dispatch(addProductToWishlist(item));
+    dispatch(addToWishlist(item, token));
   };
 
   const handleRemoveFromWishlist = (item) => {

@@ -1,4 +1,5 @@
 import axios from "axios"
+import { useSelector } from "react-redux";
 
 const ENDPOINT = 'http://localhost:5000';
 
@@ -15,4 +16,13 @@ export const registerUser = async (path, userData) => {
 export const loginUser = async (path, credential) => {
   const response = await axios.post(`${ENDPOINT}${path}`, credential)
   return response.data;
+}
+
+export const addToWishList = async (path, product, token) => {
+  const response = await axios.put(`${ENDPOINT}${path}`, product, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+  return response.data
 }
