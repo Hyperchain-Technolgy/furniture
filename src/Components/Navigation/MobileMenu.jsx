@@ -3,8 +3,12 @@ import { Dialog, Tab, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import UserProfile from '../User Profile/UserProfile'
 
 const MobileMenu = ({ open, setOpen, navigation, currencies }) => {
+  const user = useSelector(state => state.auth.user)
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -111,22 +115,25 @@ const MobileMenu = ({ open, setOpen, navigation, currencies }) => {
                 ))}
               </div> */}
 
-              <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                <div className="flow-root">
-                  <Link to="/login">
-                    <span className="-m-2 block p-2 font-medium text-gray-900">
-                      Create an account
-                    </span>
-                  </Link>
-                </div>
-                <div className="flow-root">
-                  <Link to="/register">
-                    <span className="-m-2 block p-2 font-medium text-gray-900">
-                      Sign in
-                    </span>
-                  </Link>
-                </div>
-              </div>
+              {user === null || user.token === undefined ?
+                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                  <div className="flow-root">
+                    <Link to="/login">
+                      <span className="-m-2 block p-2 font-medium text-gray-900">
+                        Create an account
+                      </span>
+                    </Link>
+                  </div>
+                  <div className="flow-root">
+                    <Link to="/register">
+                      <span className="-m-2 block p-2 font-medium text-gray-900">
+                        Sign in
+                      </span>
+                    </Link>
+                  </div>
+                </div> :
+                <UserProfile />
+              }
 
               <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                 {/* Currency selector */}

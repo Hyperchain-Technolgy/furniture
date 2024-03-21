@@ -6,10 +6,14 @@ import {
 } from '@heroicons/react/24/outline'
 import { Fragment } from 'react'
 import SearchBar from '../SearchBar'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, UserIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import UserProfile from '../User Profile/UserProfile'
 
 const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
+  const user = useSelector(state => state.auth.user)
+
   return (
     <div className="relative">
       <div aria-label="Top">
@@ -39,18 +43,21 @@ const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
               </div>
             </form>
 
-            <div className="flex items-center space-x-6">
-              <Link to="/login">
-                <span className="text-sm font-medium text-white hover:text-gray-100">
-                  Sign in
-                </span>
-              </Link>
-              <Link to="/register">
-                <span className="text-sm font-medium text-white hover:text-gray-100">
-                  Create an account
-                </span>
-              </Link>
-            </div>
+            {user === null || user.token === undefined ?
+              <div className="flex items-center space-x-6">
+                <Link to="/login">
+                  <span className="text-sm font-medium text-white hover:text-gray-100">
+                    Sign in
+                  </span>
+                </Link>
+                <Link to="/register">
+                  <span className="text-sm font-medium text-white hover:text-gray-100">
+                    Create an account
+                  </span>
+                </Link>
+              </div> :
+              <UserProfile />
+            }
           </div>
         </div>
 

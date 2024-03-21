@@ -24,7 +24,7 @@ function Register() {
 
     dispatch(registerUser(userData)).then(() => {
       setUserData({ fullname: '', email: '', password: '' });
-      navigate("/");
+      navigate("/login");
     });
   }
 

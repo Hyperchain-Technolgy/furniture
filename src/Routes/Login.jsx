@@ -1,38 +1,26 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SignIn from "../Components/SignIn"
 import { useState } from "react";
-import { loginUser } from "../feature/auth/authSlice";
+import { loginUser, setCredentials } from "../feature/auth/authSlice";
 import Warning from "../Components/Warning";
 import { useNavigate } from "react-router";
 
 function Login() {
   const [userData, setUserData] = useState({ email: '', password: '' })
-  const [error, setError] = useState(null);
+  const error = useSelector(state => state.auth.error)
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(userData.email)) {
-      setError('Please enter a valid email address');
-      return;
-    } else {
-      setError('');
-    }
+    const response = await dispatch(loginUser(userData)).unwrap()
+    localStorage.setItem('userData', JSON.stringify(response))
+    dispatch(setCredentials(response))
 
-    dispatch(loginUser(userData)).then((resp) => {
-      if (resp.payload && resp.payload.token) {
-        localStorage.setItem('token', resp.payload.token);
-        setUserData({ email: '', password: '' });
-        navigate("/");
-      } else {
-        setError('Login failed. Please try again.');
-      }
-    }).catch((error) => {
-      setError('Login failed. Please try again.');
-    });
+    setUserData({ email: '', password: '' });
+    navigate('/')
   }
 
   return (

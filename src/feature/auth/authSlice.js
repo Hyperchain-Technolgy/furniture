@@ -3,7 +3,7 @@ import { registerUser as registerUserApi } from "../../service/api-client";
 import { loginUser as loginUserApi } from "../../service/api-client";
 
 const initialState = {
-  user: [],
+  user: JSON.parse(localStorage.getItem('userData')) || null,
   isLoading: false,
   error: null
 }
@@ -18,9 +18,10 @@ export const registerUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
   'auth/login',
-  async (credential) => {
-    const response = await loginUserApi('/api/user/login', credential);
-    return response;
+  async (userData, { dispatch }) => {
+    const response = await loginUserApi('/api/user/login', userData);
+
+    return response
   }
 )
 
@@ -29,12 +30,11 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setCredentials: (state, action) => {
-      state.token = action.payload.token;
-      state.user = action.payload.user;
+      state.user = action.payload
     },
     logOut: (state) => {
+      localStorage.removeItem('userData');
       state.user = null;
-      state.token = null;
     }
   },
   extraReducers: (buiilder) => {
@@ -57,17 +57,7 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        const cachedUser = localStorage.getItem('token');
-
-        if (cachedUser) {
-          state.user = cachedUser
-          console.log(state.user);
-        } else {
-          state.user = action.payload;
-          localStorage.setItem('token', action.payload)
-          console.log(state.user);
-        }
-
+        state.user = action.payload;
         state.isLoading = false;
       })
       .addCase(loginUser.rejected, (state, action) => {
