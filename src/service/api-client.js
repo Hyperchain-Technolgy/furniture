@@ -28,3 +28,12 @@ export const addToWishList = async (path, prodId, token) => {
       })
   return response.data;
 }
+
+export const getUser = async (path, token) => {
+  const response = await axios.get(`${ENDPOINT}${path}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+  console.log(response);
+}  

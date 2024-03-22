@@ -2,7 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { addToWishList as addToWishListAPI } from "../../service/api-client";
 
 const initialState = {
-  products: []
+  loading: null,
+  products: JSON.parse(localStorage.getItem('wishlist')) || [],
+  error: null
 }
 
 
@@ -24,7 +26,11 @@ const wishlistSlice = createSlice({
   initialState,
   reducers: {
     addProductToWishlist: (state, action) => {
-      state.products.push(action.payload);
+      const productId = action.payload;
+      if (!state.products.includes(productId)) {
+        state.products.push(productId);
+        localStorage.setItem('wishlist', JSON.stringify(state.products));
+      }
     }
   },
   extraReducers: (builder) => {
@@ -38,7 +44,7 @@ const wishlistSlice = createSlice({
       })
       .addCase(addToWishlist.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = action.error.message;
       });
   }
 })
