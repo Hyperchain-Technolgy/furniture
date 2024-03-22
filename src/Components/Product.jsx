@@ -1,21 +1,16 @@
 import { ShoppingCartIcon as SolidShoppingCart, HeartIcon as SolidHeartIcon } from '@heroicons/react/24/solid';
 import { ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline'
 import IconButton from './IconButton'
-import { addProductToWishlist, addToWishlist, removeProductFromWishlist } from '../feature/wishlist/wishlistSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { addProductToWishlist, addToWishlist } from '../feature/wishlist/wishlistSlice';
+import { useDispatch } from 'react-redux';
 
 
 const Product = ({ element }) => {
-  const token = useSelector(state => state.auth.user.token)
-
   const dispatch = useDispatch();
 
   const handleAddToWishlist = (item) => {
-    dispatch(addToWishlist(item, token));
-  };
-
-  const handleRemoveFromWishlist = (item) => {
-    dispatch(removeProductFromWishlist(item));
+    dispatch(addToWishlist(item)); // to api user's wishlist database
+    dispatch(addProductToWishlist(item)) // to user's wishlist locally
   };
 
   return (
@@ -24,9 +19,8 @@ const Product = ({ element }) => {
         <div className='flex gap-4 p-5 absolute z-10'>
           <IconButton Solid={SolidShoppingCart} Outline={ShoppingCartIcon} />
           <IconButton Solid={SolidHeartIcon} Outline={HeartIcon} color='text-rose-600'
-            element={element}
+            prodId={element._id}
             handleAdd={handleAddToWishlist}
-            handleRemove={handleRemoveFromWishlist}
           />
         </div>
         <div className='overflow-hidden bg-cover bg-no-repeat'>

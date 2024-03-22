@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const IconButton = ({ Solid, Outline, color, handleAdd, element }) => {
+const IconButton = ({ Solid, Outline, color, handleAdd, prodId }) => {
   const [isSolid, setIsSolid] = useState(false);
 
   const toggleIcon = () => {
     setIsSolid(true);
-    handleAdd(element)
+    handleAdd(prodId)
   };
 
   return (

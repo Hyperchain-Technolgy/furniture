@@ -3,6 +3,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { UserIcon } from "@heroicons/react/24/solid"
 import { useDispatch } from 'react-redux'
 import { logOut } from '../../feature/auth/authSlice'
+import { Link } from 'react-router-dom'
 
 const UserProfile = () => {
   const dispatch = useDispatch()
@@ -42,6 +43,20 @@ const UserProfile = () => {
                 >
                   Profile
                 </a>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <Link to="/wishlist">
+                  <span
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'block px-4 py-2 text-sm'
+                    )}
+                  >
+                    Wishlist
+                  </span>
+                </Link>
               )}
             </Menu.Item>
             <form method="POST" action="#">
