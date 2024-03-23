@@ -3,18 +3,22 @@ import { getProducts } from "../feature/products/productSlice";
 import { useEffect } from "react";
 import TileViewProduct from "./TileViewProduct";
 import { removeFromWishlist, removeProductFromWishlist } from "../feature/wishlist/wishlistSlice";
+import { fetchUserInfo } from '../feature/auth/userInfoSlice'
 
 const Wishlist = () => {
   const dispatch = useDispatch()
-  const wishlistProductsId = useSelector(state => state.wishlist.products)
+
+  const userInfo = useSelector(state => state.auth.user)
+  const wishlistProductsId = useSelector(state => state.userInfo.userInfo?.getaUser?.wishlist)
   const allProducts = useSelector(state => state.products.products)
 
   useEffect(() => {
     dispatch(getProducts())
+    dispatch(fetchUserInfo({ id: userInfo._id, token: userInfo.token }))
   }, [])
 
   const wishlistProducts = allProducts.filter(product => {
-    return wishlistProductsId.includes(product._id);
+    return wishlistProductsId && wishlistProductsId.includes(product._id);
   });
 
   const handleRemove = (_id) => {
