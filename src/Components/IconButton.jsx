@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const IconButton = ({ Solid, Outline, color, handleAdd, prodId }) => {
   const [isSolid, setIsSolid] = useState(false);
+  const wishlist = useSelector(state => state.userInfo?.userInfo?.getaUser?.wishlist)
 
   const toggleIcon = () => {
     setIsSolid(true);
     handleAdd(prodId)
   };
+
+  useEffect(() => {
+    if (wishlist && wishlist.includes(prodId)) {
+      setIsSolid(true);
+    }
+
+  }, [wishlist, prodId]);
 
   return (
     <button
