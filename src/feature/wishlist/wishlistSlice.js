@@ -39,16 +39,10 @@ const wishlistSlice = createSlice({
   initialState,
   reducers: {
     addProductToWishlist: (state, action) => {
-      const productId = action.payload;
-      if (!state.products.includes(productId)) {
-        state.products.push(productId);
-        localStorage.setItem('wishlist', JSON.stringify(state.products));
-      }
+      state.products.push(action.payload);
     },
     removeProductFromWishlist: (state, action) => {
-      const productId = action.payload;
-      state.products = state.products.filter(id => id !== productId);
-      localStorage.setItem('wishlist', JSON.stringify(state.products));
+      state.products = state.products.filter(id => id !== action.payload);
     }
   },
   extraReducers: (builder) => {
