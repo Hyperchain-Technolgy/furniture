@@ -1,14 +1,36 @@
-import { useSelector } from "react-redux"
-import Product from '../Components/Product'
+import { useDispatch, useSelector } from "react-redux"
+import { getProducts } from "../feature/products/productSlice";
+import { useEffect } from "react";
+import TileViewProduct from "./TileViewProduct";
+import { removeFromWishlist, removeProductFromWishlist } from "../feature/wishlist/wishlistSlice";
 
 const Wishlist = () => {
-  return (
-    <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 lg:max-w-7xl lg:px-8">
-      <section className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-3 xl:grid-cols-4 lg:gap-x-8">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Wishlist</h1>
+  const dispatch = useDispatch()
+  const wishlistProductsId = useSelector(state => state.wishlist.products)
+  const allProducts = useSelector(state => state.products.products)
 
-      </section >
-    </div >
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [])
+
+  const wishlistProducts = allProducts.filter(product => {
+    return wishlistProductsId.includes(product._id);
+  });
+
+  const handleRemove = (_id) => {
+    dispatch(removeProductFromWishlist(_id))
+    // dispatch(removeFromWishlist(_id))  
+  }
+
+  return (
+    <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
+      <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-5">Wishlist</h1>
+      <ul role="list" className="divide-y divide-gray-200 border-b border-t border-gray-200">
+        {wishlistProducts.map(element => (
+          <TileViewProduct key={element._id} element={element} handleClick={handleRemove} />
+        ))}
+      </ul>
+    </div>
   )
 }
 
