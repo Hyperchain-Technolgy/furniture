@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { addToWishList as addToWishListAPI } from "../../service/api-client";
 
 const initialState = {
-  loading: null,
+  loading: false,
   products: JSON.parse(localStorage.getItem('wishlist')) || [],
   error: null
 }
