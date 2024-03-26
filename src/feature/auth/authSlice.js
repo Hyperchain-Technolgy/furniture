@@ -36,7 +36,6 @@ const authSlice = createSlice({
     },
     logOut: (state) => {
       localStorage.removeItem('userData');
-      localStorage.removeItem('wishlist');
       state.user = null;
     }
   },

@@ -8,20 +8,18 @@ import { fetchUserInfo } from '../feature/auth/userInfoSlice'
 const Wishlist = () => {
   const dispatch = useDispatch()
 
-  const userInfo = useSelector(state => state.auth.user)
-  const wishlistProductsId = useSelector(state => state.userInfo.userInfo?.getaUser?.wishlist)
+  const wishlistProductsId = useSelector(state => state.wishlist.products)
   const allProducts = useSelector(state => state.products.products)
 
   useEffect(() => {
     dispatch(getProducts())
-    dispatch(fetchUserInfo({ id: userInfo._id, token: userInfo.token }))
-  }, [dispatch, userInfo._id, userInfo.token])
+  }, [dispatch])
 
   const wishlistProducts = allProducts.filter(product => {
     return wishlistProductsId && wishlistProductsId.includes(product._id);
   });
 
-  const handleRemove = (_id) => {
+  const handleRemove = async (_id) => {
     dispatch(removeFromWishlist(_id))
     dispatch(removeProductFromWishlist(_id))
   }

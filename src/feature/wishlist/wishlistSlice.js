@@ -27,7 +27,7 @@ export const removeFromWishlist = createAsyncThunk(
     try {
       const { user } = getState().auth;
       const response = await removeFromWishListApi('/api/product/wishlist', prodId, user.token);
-      return response;
+      localStorage.setItem('wishlist', JSON.stringify(response.wishlist));
     } catch (err) {
       return rejectWithValue(err.response.data.message);
     }
@@ -40,6 +40,7 @@ const wishlistSlice = createSlice({
   reducers: {
     addProductToWishlist: (state, action) => {
       state.products.push(action.payload);
+      localStorage.setItem('wishlist', JSON.stringify(state.products));
     },
     removeProductFromWishlist: (state, action) => {
       state.products = state.products.filter(id => id !== action.payload);
