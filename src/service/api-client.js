@@ -39,14 +39,14 @@ export const getUser = async (path, token) => {
 }
 
 export const removeFromWishList = async (path, prodId, token) => {
-  const response = await axios.delete(
-    `${ENDPOINT}${path}`,
-    { prodId },
-    {
+  const response = await axios
+    .delete(`${ENDPOINT}${path}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    }
-  );
+      data: {
+        prodId: prodId
+      }
+    })
   return response.data;
 };

@@ -9,7 +9,7 @@ const initialState = {
 }
 
 export const fetchUserInfo = createAsyncThunk(
-  'auth/fetchUserInfo ',
+  'auth/fetchUserInfo',
   async ({ id, token }, { rejectWithValue }) => {
     try {
       const resp = await getUserApi(`/api/user/${id}`, token)

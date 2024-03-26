@@ -28,8 +28,8 @@ export const removeFromWishlist = createAsyncThunk(
       const { user } = getState().auth;
       const response = await removeFromWishListApi('/api/product/wishlist', prodId, user.token);
       return response;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
+    } catch (err) {
+      return rejectWithValue(err.response.data.message);
     }
   }
 );

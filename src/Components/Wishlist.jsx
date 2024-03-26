@@ -15,15 +15,15 @@ const Wishlist = () => {
   useEffect(() => {
     dispatch(getProducts())
     dispatch(fetchUserInfo({ id: userInfo._id, token: userInfo.token }))
-  }, [])
+  }, [dispatch, userInfo._id, userInfo.token])
 
   const wishlistProducts = allProducts.filter(product => {
     return wishlistProductsId && wishlistProductsId.includes(product._id);
   });
 
   const handleRemove = (_id) => {
+    dispatch(removeFromWishlist(_id))
     dispatch(removeProductFromWishlist(_id))
-    // dispatch(removeFromWishlist(_id))  
   }
 
   return (

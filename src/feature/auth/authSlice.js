@@ -22,7 +22,7 @@ export const loginUser = createAsyncThunk(
       const resp = await loginUserApi('/api/user/login', userData);
       return resp;
     } catch (err) {
-      return rejectWithValue(err.message.data);
+      return rejectWithValue(err.message);
     }
   }
 )
