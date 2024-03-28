@@ -4,9 +4,11 @@ import IconButton from './IconButton'
 import { addProductToWishlist, addToWishlist } from '../feature/wishlist/wishlistSlice';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 
 const Product = ({ element }) => {
+  // console.log(element);
   const dispatch = useDispatch();
 
   const handleAddToWishlist = (item) => {
@@ -31,10 +33,13 @@ const Product = ({ element }) => {
         </div >
         <div className='font-medium group-hover:bg-foreground duration-300 p-3 ease-in-out'>
           <h3 className="text-pink group-hover:text-white text-sm sm:text-base">
-            <a href={element.image}>
+            <Link
+              state={{ slug: element.slug }}
+              to={`/${element.slug}`}
+            >
               <span className="absolute inset-0" />
               {element.title}
-            </a>
+            </Link>
           </h3>
           <div className='flex gap-2 items-center'>
             <p className='group-hover:text-white duration-100 text-base sm:text-lg font-semibold'>₹{element.price}</p>
