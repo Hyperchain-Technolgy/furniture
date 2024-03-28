@@ -239,12 +239,10 @@ const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
     </div >
   )
 }
-
 TopNavigation.propTypes = {
   navigation: PropTypes.object.isRequired,
   setOpen: PropTypes.func.isRequired,
-  classNames: PropTypes.string,
+  classNames: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   currencies: PropTypes.array.isRequired,
 };
-
 export default TopNavigation
