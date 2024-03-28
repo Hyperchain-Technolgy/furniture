@@ -1,9 +1,14 @@
 import axios from "axios"
 
-const ENDPOINT = 'http://localhost:5000';
+// const ENDPOINT = 'http://localhost:5000';
+const ENDPOINT = 'https://furniture-backend-2u8i.onrender.com';
 
-export const getAll = async (path) => {
-  const response = await axios.get(`${ENDPOINT}${path}`)
+export const getAll = async (path, token = '') => {
+  const response = await axios.get(`${ENDPOINT}${path}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
   return response.data;
 }
 

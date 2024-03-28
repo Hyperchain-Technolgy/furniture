@@ -1,36 +1,19 @@
 import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import Button from './Button'
-
-const products = [
-  {
-    id: 1,
-    title: 'Armchair with Head Rester',
-    price: 300,
-    size: 'Large',
-    inStock: true,
-    imageSrc: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/armchair.jpg',
-  }, {
-    id: 2,
-    title: 'Beige Living Room Sofa',
-    price: 300,
-    inStock: true,
-    imageSrc: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/sofa.jpg',
-  }, {
-    id: 3,
-    title: 'Classic Wooden Table',
-    price: 300,
-    inStock: true,
-    imageSrc: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2018/01/table.jpg',
-  }, {
-    id: 4,
-    title: 'Computer Table with Office Chair',
-    price: 300,
-    inStock: true,
-    imageSrc: 'https://websitedemos.net/furniture-store-04/wp-content/uploads/sites/155/2017/12/office-table.jpg',
-  },
-]
+import { useEffect } from 'react'
+import { getCartProducts } from '../feature/cart/cartSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Cart = () => {
+  const dispatch = useDispatch();
+
+  const cartProducts = useSelector(state => state.cart.cartProducts)
+  console.log(cartProducts);
+
+  useEffect(() => {
+    dispatch(getCartProducts())
+  }, [dispatch])
+
   return (
     <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
       <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
@@ -41,12 +24,12 @@ const Cart = () => {
           </h2>
 
           <ul role="list" className="divide-y divide-gray-200 border-b border-t border-gray-200">
-            {products.map((product, productIdx) => (
-              <li key={product.id} className="flex py-6 sm:py-10">
+            {cartProducts && cartProducts.products.map((product, productIdx) => (
+              <li key={product._id} className="flex py-6 sm:py-10">
                 <div className="flex-shrink-0">
                   <img
-                    src={product.imageSrc}
-                    alt={product.title}
+                    src={product.product.images[0].url}
+                    alt={product.product.title}
                     className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
                   />
                 </div>
@@ -56,8 +39,8 @@ const Cart = () => {
                     <div>
                       <div className="flex justify-between">
                         <h3 className="text-sm">
-                          <a href={product.href} className="font-medium text-gray-700 hover:text-gray-800">
-                            {product.title}
+                          <a href={product.product.slug} className="font-medium text-gray-700 hover:text-gray-800">
+                            {product.product.title}
                           </a>
                         </h3>
                       </div>
@@ -67,7 +50,7 @@ const Cart = () => {
                           <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">{product.size}</p>
                         ) : null}
                       </div>
-                      <p className="mt-1 text-sm font-medium text-gray-900">{product.price}</p>
+                      <p className="mt-1 text-sm font-medium text-gray-900">${product.price}</p>
                     </div>
 
                     <div className="mt-4 sm:mt-0 sm:pr-9">

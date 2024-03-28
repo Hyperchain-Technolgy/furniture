@@ -1,5 +1,7 @@
 import { CheckIcon, ClockIcon, XMarkIcon } from "@heroicons/react/20/solid"
 import Button from '../Components/Button'
+import PropTypes from 'prop-types';
+
 
 const TileViewProduct = ({ element, handleClick }) => {
   return (
@@ -31,7 +33,6 @@ const TileViewProduct = ({ element, handleClick }) => {
             <Button content="Add to Cart" className="mt-3 rounded-md border border-foreground text-foreground active:bg-foreground px-3 py-1 text-sm font-semibold hover:text-white shadow-sm hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50" />
           </div>
 
-
           <div className="mt-4 sm:mt-0 sm:pr-9">
             <div className="absolute right-0 top-0">
               <button type="button"
@@ -59,5 +60,10 @@ const TileViewProduct = ({ element, handleClick }) => {
     </li>
   )
 }
+
+TileViewProduct.propTypes = {
+  element: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
 
 export default TileViewProduct

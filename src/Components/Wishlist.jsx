@@ -3,7 +3,6 @@ import { getProducts } from "../feature/products/productSlice";
 import { useEffect } from "react";
 import TileViewProduct from "./TileViewProduct";
 import { removeFromWishlist, removeProductFromWishlist } from "../feature/wishlist/wishlistSlice";
-import { fetchUserInfo } from '../feature/auth/userInfoSlice'
 
 const Wishlist = () => {
   const dispatch = useDispatch()
