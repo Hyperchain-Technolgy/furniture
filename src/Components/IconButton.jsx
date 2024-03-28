@@ -35,9 +35,9 @@ const IconButton = ({ Solid, Outline, color, handleAdd, prodId }) => {
 IconButton.propTypes = {
   Solid: PropTypes.elementType.isRequired,
   Outline: PropTypes.elementType.isRequired,
-  color: PropTypes.string.isRequired,
-  handleAdd: PropTypes.func.isRequired,
-  prodId: PropTypes.string.isRequired
+  color: PropTypes.string,
+  handleAdd: PropTypes.func,
+  prodId: PropTypes.string
 };
 
 export default IconButton

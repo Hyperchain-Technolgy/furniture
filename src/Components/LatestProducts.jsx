@@ -1,10 +1,10 @@
 import ProductsList from "./ProductsList"
 import SectionHeading from "./SectionHeading"
-import { data as furnituresData } from '../furnituresData'
 import PropTypes from 'prop-types';
+import { useSelector } from "react-redux";
 
 const LatestProducts = ({ content }) => {
-  const latestData = furnituresData.filter(data => data.latest)
+  const latestData = useSelector(state => state.products.products)
 
   return (
     <section className="my-10">

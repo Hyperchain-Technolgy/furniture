@@ -243,7 +243,7 @@ const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
 TopNavigation.propTypes = {
   navigation: PropTypes.object.isRequired,
   setOpen: PropTypes.func.isRequired,
-  classNames: PropTypes.string.isRequired,
+  classNames: PropTypes.string,
   currencies: PropTypes.array.isRequired,
 };
 

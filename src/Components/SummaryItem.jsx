@@ -16,10 +16,9 @@ const SummaryItem = ({
 
 SummaryItem.propTypes = {
   title: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
+  amount: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   font: PropTypes.string,
   border: PropTypes.string,
   color: PropTypes.string
 };
-
 export default SummaryItem

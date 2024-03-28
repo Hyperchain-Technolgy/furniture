@@ -1,10 +1,10 @@
+import { useSelector } from "react-redux";
 import ProductsList from "./ProductsList"
 import SectionHeading from "./SectionHeading"
-import { data as furnituresData } from '../furnituresData'
 import PropTypes from 'prop-types';
 
 const Featured = ({ content }) => {
-  const featuredData = furnituresData.filter(data => data.featured)
+  const featuredData = useSelector(state => state.products.products)
 
   return (
     <section className="my-16">
