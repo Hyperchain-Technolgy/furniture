@@ -1,5 +1,6 @@
 import Button from "./Button";
 import furniture from "../assets/oneseater.png";
+import PropTypes from 'prop-types';
 
 const BannerComponent = ({ parentStyle, para, title }) => {
   return (
@@ -16,5 +17,11 @@ const BannerComponent = ({ parentStyle, para, title }) => {
     </section>
   )
 }
+
+BannerComponent.propTypes = {
+  parentStyle: PropTypes.string.isRequired,
+  para: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+};
 
 export default BannerComponent

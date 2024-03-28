@@ -3,6 +3,7 @@ import { ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline'
 import IconButton from './IconButton'
 import { addProductToWishlist, addToWishlist } from '../feature/wishlist/wishlistSlice';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 
 const Product = ({ element }) => {
@@ -47,4 +48,8 @@ const Product = ({ element }) => {
   )
 }
 
-export default Product 
+Product.propTypes = {
+  element: PropTypes.object.isRequired
+};
+
+export default Product

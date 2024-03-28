@@ -1,6 +1,6 @@
 import Cart from "../Components/Cart"
 
-function Cart() {
+function CartPage() {
   return (
     <main>
       <Cart />
@@ -8,4 +8,4 @@ function Cart() {
   )
 }
 
-export default Cart
+export default CartPage

@@ -6,10 +6,11 @@ import {
 } from '@heroicons/react/24/outline'
 import { Fragment } from 'react'
 import SearchBar from '../SearchBar'
-import { ChevronDownIcon, UserIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import UserProfile from '../User Profile/UserProfile'
+import PropTypes from 'prop-types';
 
 const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
   const user = useSelector(state => state.auth.user)
@@ -238,5 +239,12 @@ const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
     </div >
   )
 }
+
+TopNavigation.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  setOpen: PropTypes.func.isRequired,
+  classNames: PropTypes.string.isRequired,
+  currencies: PropTypes.array.isRequired,
+};
 
 export default TopNavigation

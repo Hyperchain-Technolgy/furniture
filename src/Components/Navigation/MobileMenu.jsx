@@ -5,6 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import UserProfile from '../User Profile/UserProfile'
+import PropTypes from 'prop-types';
 
 const MobileMenu = ({ open, setOpen, navigation, currencies }) => {
   const user = useSelector(state => state.auth.user)
@@ -166,5 +167,12 @@ const MobileMenu = ({ open, setOpen, navigation, currencies }) => {
     </Transition.Root >
   )
 }
+
+MobileMenu.propTypes = {
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+  navigation: PropTypes.object.isRequired,
+  currencies: PropTypes.array.isRequired,
+};
 
 export default MobileMenu

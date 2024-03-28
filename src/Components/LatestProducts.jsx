@@ -1,6 +1,7 @@
 import ProductsList from "./ProductsList"
 import SectionHeading from "./SectionHeading"
 import { data as furnituresData } from '../furnituresData'
+import PropTypes from 'prop-types';
 
 const LatestProducts = ({ content }) => {
   const latestData = furnituresData.filter(data => data.latest)
@@ -13,4 +14,9 @@ const LatestProducts = ({ content }) => {
   )
 }
 
-export default LatestProducts 
+LatestProducts.propTypes = {
+  content: PropTypes.string.isRequired
+};
+
+export default LatestProducts
+

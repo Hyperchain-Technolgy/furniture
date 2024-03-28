@@ -1,6 +1,7 @@
 import ProductsList from "./ProductsList"
 import SectionHeading from "./SectionHeading"
 import { data as furnituresData } from '../furnituresData'
+import PropTypes from 'prop-types';
 
 const Featured = ({ content }) => {
   const featuredData = furnituresData.filter(data => data.featured)
@@ -12,5 +13,9 @@ const Featured = ({ content }) => {
     </section>
   )
 }
+
+Featured.propTypes = {
+  content: PropTypes.string.isRequired
+};
 
 export default Featured

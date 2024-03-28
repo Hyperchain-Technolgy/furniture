@@ -3,7 +3,6 @@ import SummaryItem from "./SummaryItem"
 import PropTypes from 'prop-types';
 
 const OrderSummary = ({ cartProducts }) => {
-  console.log(cartProducts);
   return (
     <section
       aria-labelledby="summary-heading"

@@ -2,6 +2,7 @@ import Button from "./Button";
 import FormContainer from "./FormContainer";
 import FormHeading from "./FormHeading";
 import FormFooter from "./FormFooter";
+import PropTypes from 'prop-types';
 
 export const formFieldStyle = {
   input: 'block w-full font-medium rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-foreground sm:leading-6',
@@ -60,6 +61,12 @@ const SignUp = ({ userData, setUserData, handleSubmit }) => {
       </FormContainer >
     </>
   );
+};
+
+SignUp.propTypes = {
+  userData: PropTypes.object.isRequired,
+  setUserData: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired
 };
 
 export default SignUp;

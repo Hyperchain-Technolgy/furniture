@@ -1,4 +1,3 @@
-import SearchBar from '../SearchBar'
 import { useState } from 'react'
 import MobileMenu from './MobileMenu'
 import TopNavigation from './TopNavigation'

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import PropTypes from 'prop-types';
 
 const IconButton = ({ Solid, Outline, color, handleAdd, prodId }) => {
   const [isSolid, setIsSolid] = useState(false);
@@ -31,4 +32,13 @@ const IconButton = ({ Solid, Outline, color, handleAdd, prodId }) => {
   )
 }
 
+IconButton.propTypes = {
+  Solid: PropTypes.elementType.isRequired,
+  Outline: PropTypes.elementType.isRequired,
+  color: PropTypes.string.isRequired,
+  handleAdd: PropTypes.func.isRequired,
+  prodId: PropTypes.string.isRequired
+};
+
 export default IconButton
+

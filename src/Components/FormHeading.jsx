@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import PropTypes from 'prop-types';
 
 const FormHeading = ({ content, router = "/" }) => {
   return (
@@ -16,5 +17,10 @@ const FormHeading = ({ content, router = "/" }) => {
     </>
   )
 }
+
+FormHeading.propTypes = {
+  content: PropTypes.string.isRequired,
+  router: PropTypes.string,
+};
 
 export default FormHeading

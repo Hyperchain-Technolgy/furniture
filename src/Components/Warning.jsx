@@ -1,5 +1,5 @@
 import { ExclamationTriangleIcon } from '@heroicons/react/20/solid'
-import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Warning = ({ heading, description }) => {
   return (
@@ -19,5 +19,10 @@ const Warning = ({ heading, description }) => {
     </div>
   )
 }
+
+Warning.propTypes = {
+  heading: PropTypes.string.isRequired,
+  description: PropTypes.string
+};
 
 export default Warning

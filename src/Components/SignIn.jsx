@@ -3,6 +3,7 @@ import FormContainer from './FormContainer'
 import FormFooter from './FormFooter'
 import FormHeading from './FormHeading'
 import { formFieldStyle } from './SignUp'
+import PropTypes from 'prop-types';
 
 const SignIn = ({ userData, setUserData, handleSubmit }) => {
   const handleEmail = (e) => {
@@ -38,5 +39,11 @@ const SignIn = ({ userData, setUserData, handleSubmit }) => {
     </FormContainer >
   )
 }
+
+SignIn.propTypes = {
+  userData: PropTypes.object.isRequired,
+  setUserData: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired
+};
 
 export default SignIn

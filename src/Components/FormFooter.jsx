@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import PropTypes from 'prop-types';
 
 const FormFooter = ({ content, type, router }) => {
   return (
@@ -12,5 +13,11 @@ const FormFooter = ({ content, type, router }) => {
     </p>
   )
 }
+
+FormFooter.propTypes = {
+  content: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  router: PropTypes.string.isRequired
+};
 
 export default FormFooter
