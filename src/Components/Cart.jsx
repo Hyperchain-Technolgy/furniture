@@ -3,16 +3,19 @@ import { useEffect } from 'react'
 import { getCartProducts } from '../feature/cart/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import OrderSummary from './OrderSummary'
+import Loading from './Loading'
 
 const Cart = () => {
   const dispatch = useDispatch();
 
+  const isLoading = useSelector(state => state.cart.loading)
   const cartProducts = useSelector(state => state.cart.cartProducts)
-  console.log(cartProducts);
 
   useEffect(() => {
     dispatch(getCartProducts())
   }, [dispatch])
+
+  if (isLoading) return <Loading text="Processing..." />
 
   return (
     <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -95,8 +98,7 @@ const Cart = () => {
             ))}
           </ul>
         </section>
-
-        <OrderSummary />
+        {cartProducts && <OrderSummary cartProducts={cartProducts} />}
       </div>
     </div>
   )

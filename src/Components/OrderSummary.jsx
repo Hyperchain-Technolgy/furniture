@@ -1,7 +1,9 @@
 import Button from "./Button"
 import SummaryItem from "./SummaryItem"
+import PropTypes from 'prop-types';
 
-const OrderSummary = () => {
+const OrderSummary = ({ cartProducts }) => {
+  console.log(cartProducts);
   return (
     <section
       aria-labelledby="summary-heading"
@@ -15,7 +17,7 @@ const OrderSummary = () => {
         <SummaryItem title="Subtotal" amount="$99.00" border="" />
         <SummaryItem title="Shipping estimate" amount="$5.00" />
         <SummaryItem title="Tax estimate" amount="$8.32" border="border-t border-gray-200 pt-4" />
-        <SummaryItem title="Order total" amount="$112.32" border="border-t border-gray-200 pt-4" font="text-base font-medium" color="text-gray-900" />
+        <SummaryItem title="Order total" amount={cartProducts.cartTotal} border="border-t border-gray-200 pt-4" font="text-base font-medium" color="text-gray-900" />
       </dl>
 
 
@@ -25,5 +27,9 @@ const OrderSummary = () => {
     </section>
   )
 }
+
+OrderSummary.propTypes = {
+  cartProducts: PropTypes.object.isRequired
+};
 
 export default OrderSummary
