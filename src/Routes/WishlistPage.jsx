@@ -1,6 +1,6 @@
 import Wishlist from "../Components/Wishlist"
 
-const WishlistPage = () => {
+function WishlistPage() {
   return (
     <main>
       <Wishlist />

@@ -3,6 +3,7 @@ export default {
   content: [], content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    'node_modules/flowbite-react/lib/esm/**/*.js'
   ],
   theme: {
     extend: {
@@ -22,7 +23,10 @@ export default {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/forms')
+    require('@tailwindcss/forms'),
+    // require('flowbite/plugin')({
+    //   charts: true,
+    // }),
   ],
 }
 

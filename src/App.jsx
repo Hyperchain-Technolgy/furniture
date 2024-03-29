@@ -5,6 +5,7 @@ import Register from './Routes/Register'
 import Cart from "./Components/Cart"
 import WishlistPage from "./Routes/WishlistPage"
 import CurrentProductPage from "./Routes/CurrentProductPage"
+import AdminPage from "./Routes/AdminPage"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/wishlist" element={<WishlistPage />} />
       <Route path="/:slug" element={<CurrentProductPage />} />
+      <Route path="/admin" element={<AdminPage />} />
     </Routes>
   )
 }

@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import CurrentProduct from "../Components/CurrentProduct";
 
-const CurrentProductPage = () => {
+function CurrentProductPage() {
   const { pathname } = useLocation();
 
   return (
