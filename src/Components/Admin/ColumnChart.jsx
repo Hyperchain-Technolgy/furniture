@@ -33,7 +33,8 @@ const ColumnChart = () => {
     ],
     chart: {
       type: "bar",
-      height: "320px",
+      height: "100%",
+      width: "100%",
       fontFamily: "Inter, sans-serif",
       toolbar: {
         show: false,
@@ -107,7 +108,7 @@ const ColumnChart = () => {
   }
 
   return (
-    <div className="w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div className="w-full rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
       <div className="flex justify-between pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center">
           <div className="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center me-3">

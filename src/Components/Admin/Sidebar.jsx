@@ -60,7 +60,7 @@ const Sidebar = () => {
             <Legend />
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
             <div className="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800">
               <ColumnChart />
             </div>
@@ -70,7 +70,6 @@ const Sidebar = () => {
             <div className="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800">
               <SignUpChart />
             </div>
-
           </div>
 
           <div className="grid grid-cols-2 gap-4">
