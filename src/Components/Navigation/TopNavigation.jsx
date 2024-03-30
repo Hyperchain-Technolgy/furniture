@@ -181,15 +181,15 @@ const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
                         )}
                       </Popover>
 
-                      {/* {navigation.pages.map((page) => (
-                        <a
-                          key={page.name}
-                          href={page.href}
-                          className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-                        >
-                          {page.name}
-                        </a>
-                      ))} */}
+                      {navigation.pages.map((page) => (
+                        <div className='flex items-center' key={page.name}>
+                          <Link
+                            to={page.href}
+                          >
+                            <span className="text-sm font-medium text-gray-700 hover:text-gray-800">{page.name}</span>
+                          </Link>
+                        </div>
+                      ))}
                     </div>
                   </Popover.Group>
                 </div>
@@ -235,7 +235,7 @@ const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     </div >
   )
 }

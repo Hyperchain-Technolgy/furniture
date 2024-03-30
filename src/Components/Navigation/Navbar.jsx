@@ -23,6 +23,9 @@ const navigation = {
   ],
   art: [
     { name: 'Living Room', href: '#' },
+  ],
+  pages: [
+    { name: 'Admin', href: '/admin' },
   ]
 }
 

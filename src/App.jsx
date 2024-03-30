@@ -17,7 +17,6 @@ function App() {
       <Route path="/wishlist" element={<WishlistPage />} />
       <Route path="/:slug" element={<CurrentProductPage />} />
       <Route path="/admin" element={<AdminPage />} />
-      <Link to="/admin"></Link>
     </Routes>
   )
 }
