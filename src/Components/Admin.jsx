@@ -1,4 +1,4 @@
-import Legend from "./Legend"
+import Legend from "./Admin/Legend"
 
 const Admin = () => {
   return (

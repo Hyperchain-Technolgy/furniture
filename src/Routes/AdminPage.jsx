@@ -1,4 +1,4 @@
-import Sidebar from "../Components/Sidebar"
+import Sidebar from "../Components/Admin/Sidebar"
 import Admin from "../Components/Admin"
 
 function AdminPage() {
