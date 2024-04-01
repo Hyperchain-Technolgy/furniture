@@ -22,7 +22,7 @@ export const loginUser = createAsyncThunk(
       const resp = await loginUserApi('/api/user/login', userData);
       return resp;
     } catch (err) {
-      return rejectWithValue(err.message);
+      return rejectWithValue(err.response.data.message);
     }
   }
 )
@@ -64,7 +64,7 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.payload;
       });
   }
 })

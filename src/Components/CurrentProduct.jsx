@@ -3,6 +3,7 @@ import { StarIcon } from "@heroicons/react/20/solid"
 import { useState } from "react"
 
 const CurrentProduct = ({ pathname }) => {
+  console.log(pathname);
   const product = {
     name: 'Basic Tee 6-Pack',
     price: '$192',

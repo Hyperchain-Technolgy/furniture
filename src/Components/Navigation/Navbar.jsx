@@ -25,7 +25,8 @@ const navigation = {
     { name: 'Living Room', href: '#' },
   ],
   pages: [
-    { name: 'Admin', href: '/admin' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
   ]
 }
 
