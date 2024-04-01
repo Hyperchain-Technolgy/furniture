@@ -19,8 +19,11 @@ function Login() {
     localStorage.setItem('userData', JSON.stringify(response))
     dispatch(setCredentials(response))
 
-    setUserData({ email: '', password: '' });
-    navigate('/')
+    if (response.role === "admin") {
+      navigate('/admin');
+    } else {
+      navigate('/');
+    }
   }
 
   return (

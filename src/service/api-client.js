@@ -1,8 +1,8 @@
 import axios from "axios"
 import { logOut } from '../feature/auth/authSlice'
 
-// const ENDPOINT = 'http://localhost:5000';
-const ENDPOINT = 'https://furniture-backend-2u8i.onrender.com';
+const ENDPOINT = 'http://localhost:5000';
+// const ENDPOINT = 'https://furniture-backend-2u8i.onrender.com';
 
 axios.interceptors.response.use(
   response => response,
