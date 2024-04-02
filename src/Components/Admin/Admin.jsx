@@ -5,7 +5,7 @@ import SignUpChart from "./SignUpChart"
 import UserChart from "./UserChart"
 import Nav from './Nav'
 
-const Sidebar = () => {
+const Admin = () => {
   return (
     <>
       <Nav />
@@ -64,4 +64,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default Admin
