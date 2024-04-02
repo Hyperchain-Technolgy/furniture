@@ -1,8 +1,6 @@
 import ReactApexChart from 'react-apexcharts';
 import ChartContainer from './ChartContainer';
 import DropDownMenu from './DropDownMenu';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { setSelectedOption, toggleDropdown } from '../../feature/admin/dropdownSlice';
 
 const Legend = () => {
   const options = {
