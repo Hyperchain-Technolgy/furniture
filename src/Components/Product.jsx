@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-
 const Product = ({ element }) => {
   // console.log(element);
   const dispatch = useDispatch();
@@ -18,37 +17,37 @@ const Product = ({ element }) => {
 
   return (
     <div className="group relative">
-      <div className="w-full overflow-hidden border rounded-md" >
+      <div className="w-full overflow-hidden border border-gray-200 rounded-lg" >
         <div className='flex gap-4 p-5 absolute z-10'>
           <IconButton Solid={SolidHeartIcon} Outline={HeartIcon} color='text-rose-600'
             prodId={element._id}
             handleAdd={handleAddToWishlist}
           />
         </div>
-        <div className='overflow-hidden bg-cover bg-no-repeat'>
+        <div className='bg-cover aspect-h-4 aspect-w-3 group-hover:opacity-75'>
           <img
             src={element.images[0].url}
             alt={element.title}
-            className='h-full w-full object-cover object-center transition duration-300 ease-in-out hover:scale-110' />
+            className='h-full w-full object-cover object-center' />
         </div >
-        <div className='font-medium group-hover:bg-foreground duration-300 p-3 ease-in-out'>
-          <h3 className="text-pink group-hover:text-white text-sm sm:text-base">
+        <div className="flex flex-1 flex-col space-y-2 p-4">
+          <h3 className="text-sm font-medium text-gray-900">
             <Link
               state={{ slug: element.slug }}
               to={`/${element.slug}`}
             >
-              <span className="absolute inset-0" />
+              <span aria-hidden="true" className="absolute inset-0" />
               {element.title}
             </Link>
           </h3>
-          <div className='flex gap-2 items-center'>
-            <p className='group-hover:text-white duration-100 text-base sm:text-lg font-semibold'>₹{element.price}</p>
-            <p className='text-gray-400 duration-100 text-lg line-through'>₹3999</p>
-            <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-pink ring-1 ring-inset ring-red-600/10 group-hover:bg-blue-900 group-hover:ring-blue-50/10 group-hover:text-white">{'-20%'}</span>
+          <p className="text-sm text-gray-500">{element.description}</p>
+          <div className="flex flex-1 flex-col justify-end">
+            <p className="text-sm italic text-gray-500">{element.material}</p>
+            <p className="text-base font-medium text-gray-900">₹{element.price > 9999 ? element.price.toLocaleString() : element.price}</p>
           </div>
-        </div >
+        </div>
       </div>
-    </div>
+    </div >
   )
 }
 
