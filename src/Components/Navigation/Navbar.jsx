@@ -2,7 +2,6 @@ import { useState } from 'react'
 import MobileMenu from './MobileMenu'
 import TopNavigation from './TopNavigation'
 
-
 const currencies = ['INR', 'CAD', 'USD', 'AUD', 'EUR', 'GBP']
 
 const navigation = {
@@ -22,7 +21,7 @@ const navigation = {
     { name: 'Living Room', href: '#' },
   ],
   art: [
-    { name: 'Living Room', href: '#' },
+    { name: 'Art', href: '#' },
   ],
   pages: [
     { name: 'About', href: '/about' },

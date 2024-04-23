@@ -7,6 +7,8 @@ import WishlistPage from "./Routes/WishlistPage"
 import CurrentProductPage from "./Routes/CurrentProductPage"
 import AdminPage from "./Routes/AdminPage"
 import ProtectedRoute from "./Components/ProtectedRoute"
+import AboutPage from "./Routes/AboutPage"
+import ContactPage from "./Routes/ContactPage"
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
       <Route path="/wishlist" element={<WishlistPage />} />
       <Route path="/:slug" element={<CurrentProductPage />} />
       <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/contact" element={<ContactPage />} />
     </Routes>
   )
 }
