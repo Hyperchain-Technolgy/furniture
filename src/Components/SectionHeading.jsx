@@ -2,8 +2,14 @@ import PropTypes from 'prop-types';
 
 const SectionHeading = ({ content }) => {
   return (
-    <h2 className="text-center text-3xl font-semibold lg:my-8 tracking-tight">{content}
-    </h2>
+    <div className='lg:my-8 text-center'>
+      <h2 className="mb-4 text-3xl font-semibold tracking-tight">{content}
+      </h2>
+      <p className="mx-auto max-w-md text-gray-500">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque praesentium cumque iure
+        dicta incidunt est ipsam, officia dolor fugit natus?
+      </p>
+    </div>
   )
 }
 

@@ -23,8 +23,8 @@ function Home() {
       </header>
       <main>
         <Hero />
+        <LatestProducts content="Discover Our Newest Arrivals" />
         <Featured content="Featured Products" />
-        <LatestProducts content="Latest Products" />
       </main>
       <footer></footer>
     </>
