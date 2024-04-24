@@ -7,7 +7,7 @@ const Featured = ({ content }) => {
   const featuredData = useSelector(state => state.products.products)
 
   return (
-    <section className="my-16">
+    <section className="mt-16">
       <SectionHeading content={content} />
       <ProductsList data={featuredData} />
     </section>
