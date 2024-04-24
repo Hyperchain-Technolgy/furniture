@@ -5,6 +5,7 @@ import LatestProducts from "../Components/LatestProducts"
 import Navbar from "../Components/Navigation/Navbar"
 import { useEffect } from "react"
 import { fetchUserInfo } from "../feature/auth/userInfoSlice"
+import Faq from "../Components/Faq"
 
 function Home() {
   const loginUser = useSelector(state => state.auth.user)
@@ -26,7 +27,9 @@ function Home() {
         <LatestProducts content="Discover Our Newest Arrivals" />
         <Featured content="Featured Products" />
       </main>
-      <footer></footer>
+      <footer>
+        <Faq />
+      </footer>
     </>
   )
 }
