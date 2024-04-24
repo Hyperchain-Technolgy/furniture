@@ -24,6 +24,11 @@ export const getAll = async (path, token = '') => {
   return response.data;
 }
 
+export const getSpecific = async (path) => {
+  const response = await axios.get(`${ENDPOINT}${path}`)
+  return response.data;
+}
+
 export const registerUser = async (path, userData) => {
   const response = await axios.post(`${ENDPOINT}${path}`, userData)
   return response.data;
