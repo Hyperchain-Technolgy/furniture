@@ -73,7 +73,7 @@ const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
                     <span className="sr-only">Furniture.</span>
                     <img
                       className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=pink&shade=600"
+                      src="/Artivo.png"
                       alt=""
                     />
                   </Link>
@@ -207,26 +207,23 @@ const TopNavigation = ({ navigation, setOpen, classNames, currencies }) => {
 
                   {/* Search */}
                   {/* <SearchBar /> */}
-                  <a href="#" className="ml-2 p-2 text-gray-400 hover:text-gray-500">
+                  {/* <a href="#" className="ml-2 p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
-                  </a>
+                  </a> */}
                 </div>
 
                 {/* Logo (lg-) */}
                 <a href="#" className="lg:hidden">
                   <span className="sr-only">Furniture.</span>
                   <img
-                    src="https://tailwindui.com/img/logos/mark.svg?color=pink&shade=600"
+                    src="/Artivo.png"
                     alt=""
                     className="h-8 w-auto"
                   />
                 </a>
 
                 <div className="flex flex-1 items-center justify-end gap-5">
-                  <span className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
-                    <SearchBar />
-                  </span>
                   <Link to="/cart">
                     <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
                   </Link>

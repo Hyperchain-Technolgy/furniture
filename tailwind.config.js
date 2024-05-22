@@ -12,12 +12,11 @@ export default {
       },
       colors: {
         // to change bg & fg go to index.css
-        background: "#EEEFFB",
-        foreground: "#151875",
-
-        violet: "#7E33E0",
-        pink: "#FB2E86",
-        lightpink: "#fb509a"
+        background: "#EEEEEE",
+        foreground: "#393E46 ",
+        text: "#393E46",
+        pink: "#393E46",
+        lightpink: "#EEEEEE"
       },
     },
   },

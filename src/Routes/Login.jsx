@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import SignIn from "../Components/SignIn"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { loginUser, setCredentials } from "../feature/auth/authSlice";
 import Warning from "../Components/Warning";
 import { useNavigate } from "react-router";
@@ -8,9 +8,16 @@ import { useNavigate } from "react-router";
 function Login() {
   const [userData, setUserData] = useState({ email: '', password: '' })
   const error = useSelector(state => state.auth.error)
+  const user = useSelector(state => state.auth.user)
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

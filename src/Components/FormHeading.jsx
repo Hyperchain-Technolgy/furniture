@@ -7,7 +7,7 @@ const FormHeading = ({ content, router = "/" }) => {
       <Link to={router}>
         <img
           className="mx-auto h-10 w-auto"
-          src="https://tailwindui.com/img/logos/mark.svg?color=pink&shade=600"
+          src="/Artivo.png"
           alt="Your Company"
         />
       </Link>
