@@ -9,6 +9,7 @@ import AdminPage from "./Routes/AdminPage"
 import ProtectedRoute from "./Components/ProtectedRoute"
 import AboutPage from "./Routes/AboutPage"
 import ContactPage from "./Routes/ContactPage"
+import AdminProducts from "./Routes/AdminProducts"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/admin/products" element={<AdminProducts />} />
     </Routes>
   )
 }
