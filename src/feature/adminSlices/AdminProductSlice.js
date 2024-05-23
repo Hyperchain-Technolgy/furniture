@@ -10,7 +10,7 @@ const initialState = {
 export const fetchProducts = createAsyncThunk(
   'adminProduct/fetchProducts',
   async () => {
-    const response = await getAll('api/product/');
+    const response = await getAll('/api/product/');
     return response;
   }
 );
