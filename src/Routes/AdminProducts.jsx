@@ -10,6 +10,7 @@ import AddProduct from "../Components/AddProduct";
 function AdminProducts() {
   const { allProducts, loading, error } = useSelector((state) => state.adminProduct);
   const [showAddProduct, setShowAddProduct] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -39,7 +40,7 @@ function AdminProducts() {
         </div>
       </aside>
 
-      {showAddProduct && <AddProduct setShowAddProduct={setShowAddProduct} />}
+      {showAddProduct && <AddProduct setShowAddProduct={setShowAddProduct} product={selectedProduct} />}
 
       <div className="sm:ml-64 mt-[3rem] pt-[1rem]">
         <div className="p-4 block sm:flex items-center justify-between border-b border-gray-200 border-gray-700">
@@ -61,7 +62,10 @@ function AdminProducts() {
               <button
                 id="createProductButton"
                 type="button"
-                onClick={() => setShowAddProduct(true)}
+                onClick={() => {
+                  setShowAddProduct(true);
+                  setSelectedProduct(null);
+                }}
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               >
                 Add new product
@@ -107,7 +111,12 @@ function AdminProducts() {
                         <td className="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{product.quantity}</td>
 
                         <td className="p-4 space-x-2 whitespace-nowrap">
-                          <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                          <button
+                            onClick={() => {
+                              setShowAddProduct(true);
+                              setSelectedProduct(product);
+                            }}
+                            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <Cog8ToothIcon className="w-4 h-4 mr-2" />
                             Update
                           </button>

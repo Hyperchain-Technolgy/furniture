@@ -1,6 +1,28 @@
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import FormField from './FormField';
 
-const AddProduct = ({ setShowAddProduct }) => {
+const AddProduct = ({ setShowAddProduct, product }) => {
+  const [newProduct, setNewProduct] = useState({
+    title: '',
+    price: '',
+    quantity: '',
+    category: '',
+    description: ''
+  });
+
+  useEffect(() => {
+    if (product) {
+      setNewProduct({
+        title: product.title || '',
+        price: product.price || '',
+        quantity: product.quantity || '',
+        category: product.category || '',
+        description: product.description || ''
+      });
+    }
+  }, [product]);
+
   return (
     <div className="border-solid fixed top-0 right-80 z-40 w-full h-screen max-w-xs p-4 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800">
       <h5 className="inline-flex items-center mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">New Product</h5>
@@ -10,28 +32,55 @@ const AddProduct = ({ setShowAddProduct }) => {
       </button>
       <form action="#">
         <div className="space-y-4">
-          <div>
-            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-            <input type="text" name="title" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Type product name" required />
-          </div>
-
-          <div>
-            <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-            <input type="number" name="price" id="price" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="$2999" required />
-          </div>
-          <div>
-            <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
-            <input type="number" name="price" id="price" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Type product category" required />
-          </div>
-          <div>
-            <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-            <textarea id="description" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter event description here"></textarea>
-          </div>
+          <FormField
+            label="Name"
+            type="text"
+            name="title"
+            value={newProduct.title}
+            onChange={(e) => setNewProduct({ ...newProduct, title: e.target.value })}
+            placeholder="Type product name"
+          />
+          <FormField
+            label="Price"
+            type="number"
+            name="price"
+            value={newProduct.price}
+            onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
+            placeholder="2999"
+          />
+          <FormField
+            label="Quantity"
+            type="number"
+            name="quantity"
+            value={newProduct.quantity}
+            onChange={(e) => setNewProduct({ ...newProduct, quantity: e.target.value })}
+            placeholder="100"
+          />
+          <FormField
+            label="Category"
+            type="text"
+            name="category"
+            value={newProduct.category}
+            onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}
+            placeholder="Type product category"
+          />
+          <FormField
+            label="Description"
+            type="textarea"
+            name="description"
+            value={newProduct.description}
+            onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
+            placeholder="Enter product description here"
+          />
           <div className="bottom-0 left-0 flex justify-center w-full pb-4 space-x-4 md:px-4 md:absolute">
-            <button type="submit" className="text-white w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <button
+              type="submit"
+              className="text-white w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               Add product
             </button>
-            <button onClick={() => setShowAddProduct(false)} type="button" data-drawer-dismiss="drawer-create-product-default" aria-controls="drawer-create-product-default" className="inline-flex w-full justify-center text-gray-500 items-center bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+            <button
+              onClick={() => setShowAddProduct(false)}
+              type="button" className="inline-flex w-full justify-center text-gray-500 items-center bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
               <svg aria-hidden="true" className="w-5 h-5 -ml-1 sm:mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
               Cancel
             </button>
@@ -44,6 +93,7 @@ const AddProduct = ({ setShowAddProduct }) => {
 
 AddProduct.propTypes = {
   setShowAddProduct: PropTypes.func.isRequired,
+  product: PropTypes.object,
 };
 
-export default AddProduct
+export default AddProduct 
