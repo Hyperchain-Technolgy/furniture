@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../feature/adminSlices/AdminProductSlice";
+
 import Loading from "../Components/Loading";
 import Nav from "../Components/Admin/Nav";
 import Navlist from "../Components/Admin/Navlist";
 import { Cog8ToothIcon, TrashIcon } from '@heroicons/react/24/solid';
 import AddProduct from "../Components/AddProduct";
+import { getProducts } from "../feature/products/productSlice";
 
 function AdminProducts() {
-  const { allProducts, loading, error } = useSelector((state) => state.adminProduct);
+  const { products, loading, error } = useSelector((state) => state.products);
   const [showAddProduct, setShowAddProduct] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(getProducts());
   }, [dispatch]);
 
   if (loading) {
@@ -100,7 +101,7 @@ function AdminProducts() {
                   </thead>
 
                   <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                    {allProducts.map(product => (
+                    {products.map(product => (
                       <tr key={product._id} className="hover:bg-gray-100 dark:hover:bg-gray-700">
                         <td className="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
                           <div className="text-base font-semibold text-gray-900 dark:text-white">{product.title}</div>

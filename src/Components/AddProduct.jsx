@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import FormField from './FormField';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../feature/adminSlices/createProductSlice';
 
 const AddProduct = ({ setShowAddProduct, product }) => {
   const [newProduct, setNewProduct] = useState({
@@ -8,8 +10,13 @@ const AddProduct = ({ setShowAddProduct, product }) => {
     price: '',
     quantity: '',
     category: '',
-    description: ''
+    description: '',
+    images: [],
+    color: [],
+    material: '',
   });
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (product) {
@@ -23,6 +30,13 @@ const AddProduct = ({ setShowAddProduct, product }) => {
     }
   }, [product]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(newProduct);
+    dispatch(addProduct(newProduct));
+    setShowAddProduct(false);
+  };
+
   return (
     <div className="border-solid fixed top-0 right-80 z-40 w-full h-screen max-w-xs p-4 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800">
       <h5 className="inline-flex items-center mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">New Product</h5>
@@ -30,7 +44,7 @@ const AddProduct = ({ setShowAddProduct, product }) => {
         <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
         <span className="sr-only">Close menu</span>
       </button>
-      <form action="#">
+      <form onSubmit={handleSubmit}>
         <div className="space-y-4">
           <FormField
             label="Name"
@@ -72,6 +86,14 @@ const AddProduct = ({ setShowAddProduct, product }) => {
             onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
             placeholder="Enter product description here"
           />
+          {/* <FormField
+            label="Images"
+            type="file"
+            name="images"
+            value={newProduct.images}
+            onChange={(e) => setNewProduct({ ...newProduct, images: e.target.value })}
+            placeholder="Drop images here"
+          /> */}
           <div className="bottom-0 left-0 flex justify-center w-full pb-4 space-x-4 md:px-4 md:absolute">
             <button
               type="submit"
@@ -96,4 +118,4 @@ AddProduct.propTypes = {
   product: PropTypes.object,
 };
 
-export default AddProduct 
+export default AddProduct
