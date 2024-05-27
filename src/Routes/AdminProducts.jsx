@@ -7,13 +7,19 @@ import Navlist from "../Components/Admin/Navlist";
 import { Cog8ToothIcon, TrashIcon } from '@heroicons/react/24/solid';
 import AddProduct from "../Components/AddProduct";
 import { getProducts } from "../feature/products/productSlice";
+import { deleteProduct } from "../service/api-client";
 
 function AdminProducts() {
   const { products, loading, error } = useSelector((state) => state.products);
   const [showAddProduct, setShowAddProduct] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const { user } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
+
+  const handleDelete = async (productId) => {
+    await deleteProduct(productId, user.token);
+  };
 
   useEffect(() => {
     dispatch(getProducts());
@@ -122,7 +128,9 @@ function AdminProducts() {
                             Update
                           </button>
 
-                          <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                          <button
+                            onClick={() => handleDelete(product._id)}
+                            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
                             <TrashIcon className="w-4 h-4 mr-2" />
                             Delete item
                           </button>

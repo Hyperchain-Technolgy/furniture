@@ -81,3 +81,17 @@ export const createProduct = async (productData, token) => {
   });
   return response.data;
 };
+
+export const deleteProduct = async (productId, token) => {
+  console.log(productId, token);
+  try {
+    const response = await axios.delete(`${ENDPOINT}/api/product/${productId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    console.log('Product deleted successfully:', response.data);
+  } catch (error) {
+    console.error('Failed to delete product:', error.response.data);
+  }
+};
