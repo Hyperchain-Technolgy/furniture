@@ -82,8 +82,20 @@ export const createProduct = async (productData, token) => {
   return response.data;
 };
 
+export const updateProduct = async (productId, productData, token) => {
+  try {
+    const response = await axios.put(`${ENDPOINT}/api/product/${productId}`, productData, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }); 
+    return response.data;
+  } catch (error) {
+    console.error('Failed to update product:', error.response.data);
+  }
+}
+
 export const deleteProduct = async (productId, token) => {
-  console.log(productId, token);
   try {
     const response = await axios.delete(`${ENDPOINT}/api/product/${productId}`, {
       headers: {

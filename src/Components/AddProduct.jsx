@@ -31,7 +31,6 @@ const AddProduct = ({ setShowAddProduct, product }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newProduct);
     dispatch(addProduct(newProduct));
     setShowAddProduct(false);
   };

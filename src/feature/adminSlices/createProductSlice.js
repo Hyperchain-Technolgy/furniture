@@ -9,10 +9,14 @@ const initialState = {
 
 export const addProduct = createAsyncThunk(
   'adminProduct/addProduct',
-  async (productData, { getState }) => {
-    const { user } = getState().auth;
-    const response = await createProduct(productData, user.token);
-    return response;
+  async (productData, { getState, rejectWithValue }) => {
+    try {
+      const { user } = getState().auth;
+      const response = await createProduct(productData, user.token);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
