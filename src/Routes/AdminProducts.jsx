@@ -8,25 +8,17 @@ import { Cog8ToothIcon, TrashIcon } from '@heroicons/react/24/solid';
 import AddProduct from "../Components/AddProduct";
 import { getProducts } from "../feature/products/productSlice";
 import { deleteProduct } from "../service/api-client";
-import { updateProduct } from "../feature/adminSlices/updateProductSlice";
 
 function AdminProducts() {
   const { products, loading, error } = useSelector((state) => state.products);
+  const { user } = useSelector(state => state.auth);
   const [showAddProduct, setShowAddProduct] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const { user } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
 
   const handleDelete = async (productId) => {
     await deleteProduct(productId, user.token);
-  };
-
-  const handleUpdate = (productId, productData) => {
-    const token = user.token;
-    dispatch(updateProduct({ productId, productData, token }));
-    setShowAddProduct(true);
-    setSelectedProduct(productData);
   };
 
   useEffect(() => {
@@ -127,7 +119,10 @@ function AdminProducts() {
 
                         <td className="p-4 space-x-2 whitespace-nowrap">
                           <button
-                            onClick={() => handleUpdate(product._id, product)}
+                            onClick={() => {
+                              setShowAddProduct(true);
+                              setSelectedProduct(product);
+                            }}
                             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <Cog8ToothIcon className="w-4 h-4 mr-2" />
                             Update

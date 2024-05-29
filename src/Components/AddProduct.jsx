@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import FormField from './FormField';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../feature/adminSlices/createProductSlice';
+
 const AddProduct = ({ setShowAddProduct, product }) => {
   const [newProduct, setNewProduct] = useState({
     title: '',
