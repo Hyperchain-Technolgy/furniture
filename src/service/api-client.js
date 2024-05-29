@@ -82,6 +82,15 @@ export const createProduct = async (productData, token) => {
   return response.data;
 }
 
+export const updateProductApi = async (id, productData, token) => {
+  const response = await axios.put(`${ENDPOINT}/api/product/${id}`, productData, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+  return response.data;
+};
+
 export const deleteProduct = async (productId, token) => {
   try {
     const response = await axios.delete(`${ENDPOINT}/api/product/${productId}`, {

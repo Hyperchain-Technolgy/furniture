@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import FormField from './FormField';
 import { useDispatch } from 'react-redux';
-import { addProduct } from '../feature/adminSlices/createProductSlice';
+import { addProduct, updateProduct } from '../feature/adminSlices/createProductSlice';
 
 const AddProduct = ({ setShowAddProduct, product }) => {
   const [newProduct, setNewProduct] = useState({
@@ -32,7 +32,11 @@ const AddProduct = ({ setShowAddProduct, product }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(addProduct(newProduct));
+    if (product) {
+      dispatch(updateProduct({ id: product._id, data: newProduct }));
+    } else {
+      dispatch(addProduct(newProduct));
+    }
     setShowAddProduct(false);
   };
 
