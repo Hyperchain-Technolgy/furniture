@@ -33,8 +33,8 @@ export const updateProduct = createAsyncThunk(
   }
 );
 
-const createProductSlice = createSlice({
-  name: 'createProduct',
+const adminProductSlice = createSlice({
+  name: 'adminProduct',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -63,5 +63,5 @@ const createProductSlice = createSlice({
   },
 });
 
-export default createProductSlice.reducer;
+export default adminProductSlice.reducer;
 

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import FormField from './FormField';
 import { useDispatch } from 'react-redux';
-import { addProduct, updateProduct } from '../feature/adminSlices/createProductSlice';
+import { addProduct, updateProduct } from '../feature/adminSlices/adminProductSlice';
 
 const AddProduct = ({ setShowAddProduct, product }) => {
   const [newProduct, setNewProduct] = useState({
