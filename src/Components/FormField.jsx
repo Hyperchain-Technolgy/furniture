@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const FormField = ({ label, type, name, value = '', onChange, placeholder, rows }) => {
+const FormField = ({ label, type, name, value, onChange, placeholder, rows }) => {
   return (
     <div>
       <label htmlFor={name} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{label}</label>
@@ -40,7 +40,6 @@ FormField.propTypes = {
 };
 
 FormField.defaultProps = {
-  value: '',
   placeholder: '',
   rows: 4,
 };

@@ -74,7 +74,7 @@ export const removeFromWishList = async (path, prodId, token) => {
 };
 
 export const createProduct = async (productData, token) => {
-  const response = await axios.post(`${ENDPOINT}/api/product/`, productData, {
+  const response = await axios.post(`${ENDPOINT}/api/product/create`, productData, {
     headers: {
       Authorization: `Bearer ${token}`
     }
