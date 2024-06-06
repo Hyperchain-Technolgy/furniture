@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const FormField = ({ label, type, name, value, onChange, placeholder, rows }) => {
+const FormField = ({ label, type, name, value = '', onChange, placeholder, rows }) => {
   return (
     <div>
       <label htmlFor={name} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{label}</label>
@@ -33,13 +33,14 @@ FormField.propTypes = {
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   rows: PropTypes.number,
 };
 
 FormField.defaultProps = {
+  value: '',
   placeholder: '',
   rows: 4,
 };

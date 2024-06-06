@@ -25,19 +25,38 @@ const AddProduct = ({ setShowAddProduct, product }) => {
         price: product.price || '',
         quantity: product.quantity || '',
         category: product.category || '',
-        description: product.description || ''
+        description: product.description || '',
+        images: product.images || [],
+        color: product.color || [],
+        material: product.material || '',
       });
     }
   }, [product]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    Object.keys(newProduct).forEach(key => {
+      if (key === 'images') {
+        for (let i = 0; i < newProduct.images.length; i++) {
+          formData.append('images', newProduct.images[i]);
+        }
+      } else {
+        formData.append(key, newProduct[key]);
+      }
+    });
+
     if (product) {
-      dispatch(updateProduct({ id: product._id, data: newProduct }));
+      dispatch(updateProduct({ id: product._id, data: formData }));
     } else {
-      dispatch(addProduct(newProduct));
+      dispatch(addProduct(formData));
     }
     setShowAddProduct(false);
+  };
+
+  const handleImagesChange = (e) => {
+    const files = e.target.files;
+    setNewProduct({ ...newProduct, images: files });
   };
 
   return (
@@ -89,14 +108,29 @@ const AddProduct = ({ setShowAddProduct, product }) => {
             onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
             placeholder="Enter product description here"
           />
-          {/* <FormField
+          <FormField
+            label="Color"
+            type="text"
+            name="color"
+            value={newProduct.color.join(', ')}
+            onChange={(e) => setNewProduct({ ...newProduct, color: e.target.value.split(',').map(c => c.trim()) })}
+            placeholder="Enter product color here"
+          />
+          <FormField
+            label="Material"
+            type="text"
+            name="material"
+            value={newProduct.material}
+            onChange={(e) => setNewProduct({ ...newProduct, material: e.target.value })}
+            placeholder="Enter product material here"
+          />
+          <FormField
             label="Images"
             type="file"
             name="images"
-            value={newProduct.images}
-            onChange={(e) => setNewProduct({ ...newProduct, images: e.target.value })}
-            placeholder="Drop images here"
-          /> */}
+            onChange={handleImagesChange}
+            multiple
+          />
           <div className="bottom-0 left-0 flex justify-center w-full pb-4 space-x-4 md:px-4 md:absolute">
             <button
               type="submit"
