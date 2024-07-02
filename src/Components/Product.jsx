@@ -26,7 +26,7 @@ const Product = ({ element }) => {
         </div>
         <div className='bg-cover aspect-h-4 aspect-w-3 group-hover:opacity-75'>
           <img
-            src={element.images[0].url}
+            src={`http://localhost:5000/images/${element.images[0]}`}
             alt={element.title}
             className='h-full w-full object-cover object-center' />
         </div >

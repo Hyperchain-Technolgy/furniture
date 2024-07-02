@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import FormField from './FormField';
 import { useDispatch } from 'react-redux';
 import { addProduct, updateProduct } from '../feature/adminSlices/adminProductSlice';
+import { XCircleIcon } from '@heroicons/react/24/solid';
 
 const AddProduct = ({ setShowAddProduct, product }) => {
   const [newProduct, setNewProduct] = useState({
@@ -16,6 +17,7 @@ const AddProduct = ({ setShowAddProduct, product }) => {
     material: '',
   });
 
+  const [imagePreviews, setImagePreviews] = useState([]);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
 
@@ -31,6 +33,7 @@ const AddProduct = ({ setShowAddProduct, product }) => {
         color: product.color || [],
         material: product.material || '',
       });
+      setImagePreviews(product.images.map(img => URL.createObjectURL(img)));
     }
   }, [product]);
 
@@ -68,7 +71,21 @@ const AddProduct = ({ setShowAddProduct, product }) => {
 
   const handleImagesChange = (e) => {
     const files = Array.from(e.target.files);
-    setNewProduct({ ...newProduct, images: files });
+    setNewProduct(prevState => ({
+      ...prevState,
+      images: [...prevState.images, ...files]
+    }));
+    setImagePreviews(prevPreviews => [
+      ...prevPreviews,
+      ...files.map(file => URL.createObjectURL(file))
+    ]);
+  };
+
+  const handleRemoveImage = (index) => {
+    const updatedImages = newProduct.images.filter((_, i) => i !== index);
+    const updatedPreviews = imagePreviews.filter((_, i) => i !== index);
+    setNewProduct({ ...newProduct, images: updatedImages });
+    setImagePreviews(updatedPreviews);
   };
 
   return (
@@ -142,9 +159,22 @@ const AddProduct = ({ setShowAddProduct, product }) => {
             type="file"
             name="images"
             onChange={handleImagesChange}
-            multiple
           />
-          <div className="bottom-[-100px] left-0 flex justify-center w-full pb-4 space-x-4 md:px-4 md:absolute">
+          <div className="image-previews grid grid-cols-3 gap-2">
+            {imagePreviews.map((preview, index) => (
+              <div key={index} className="relative">
+                <button
+                  type="button"
+                  onClick={() => handleRemoveImage(index)}
+                  className="absolute bottom-[4rem] text-red-500 right-0 rounded-full p-1"
+                >
+                  <XCircleIcon className="w-5 h-5" />
+                </button>
+                <img src={preview} alt="Preview" className="w-20 h-20 object-cover" />
+              </div>
+            ))}
+          </div>
+          <div className="bottom-[-100px] left-0 flex justify-center w-full pb-4 space-x-4 md:px-4">
             <button
               type="submit"
               className="text-white w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
