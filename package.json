@@ -2,7 +2,7 @@
   "name": "furniture",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://{username}.github.io/{repo-name}",
+  "homepage": "https://github.com/Hyperchain-Technolgy/furniture.git",
   "type": "module",
   "scripts": {
     "dev": "vite",
