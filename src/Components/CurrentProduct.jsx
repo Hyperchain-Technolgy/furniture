@@ -112,7 +112,7 @@ const CurrentProduct = ({ product }) => {
                     {({ selected }) => (
                       <>
                         <span className="absolute inset-0 overflow-hidden rounded-md">
-                          <img src={image.url} alt={product.title} className="h-full w-full object-cover object-center" />
+                          <img src={`http://localhost:5000/images/${image}`} alt={product.title} className="h-full w-full object-cover object-center" />
                         </span>
                         <span
                           className={classNames(
@@ -132,7 +132,7 @@ const CurrentProduct = ({ product }) => {
               {product.images.map((image, index) => (
                 <Tab.Panel key={index}>
                   <img
-                    src={image.url}
+                    src={`http://localhost:5000/images/${image}`}
                     alt={product.title}
                     className="h-full w-full object-cover object-center sm:rounded-lg"
                   />

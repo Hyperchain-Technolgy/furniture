@@ -1,5 +1,4 @@
 import axios from "axios"
-import { logOut } from '../feature/auth/authSlice'
 
 const ENDPOINT = 'http://localhost:5000';
 // const ENDPOINT = 'https://furniture-backend-2u8i.onrender.com';
@@ -8,7 +7,7 @@ axios.interceptors.response.use(
   response => response,
   error => {
     if (error.response.status === 401) {
-      logOut()
+      localStorage.removeItem('userData');
       window.location.href = '/';
     }
     return Promise.reject(error);
@@ -77,6 +76,7 @@ export const createProduct = async (productData, token) => {
   const response = await axios.post(`${ENDPOINT}/api/product/create`, productData, {
     headers: {
       Authorization: `Bearer ${token}`
+      
     }
   });
   return response.data;
